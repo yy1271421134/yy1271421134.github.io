@@ -1,0 +1,216 @@
+{％ 扩展了 '_layout.njk'  ％}
+{％ 导入 '_macro / sidebar.njk' 作为 具有上下文％的sidebar_template  }  
+
+{％ 块 标题 ％}
+  {％ -集 page_title_suffix = '| ' +标题 ％}
+
+  {％ -如果是 页面。类型=== '类别'， 而 不是 page。标题 ％}NaN
+  {％ - ELIF 页。类型=== '标签' 而 不是 page。标题 ％}NaN
+  {％ - ELIF 页。类型=== '时间表'， 而 不是 page。标题 ％}NaN
+  {％ -否则 ％}bbundefined
+  {％ - ENDIF  ％}
+{％ endblock  ％}
+
+{％ block  class  ％}页的帖子已展开{％ endblock  ％}
+
+{％ 封锁 内容 ％}
+
+    
+    
+    
+    < div  class = “ post-block ”  lang = “  ” >
+      {％ 包括 '_partials / page / page-header.njk'  ％}
+      
+      
+      
+      < div  class = “ post-body {％-如果page.direction和page.direction.toLowerCase（）==='rtl'％} rtl {％-endif％} ” >
+        {％ -如果是 页面。类型=== '标签'  ％}
+          {％ 包括 '_partials / page / tags.njk'  ％}
+        {％ elif  page。类型=== '类别'  ％}
+          {％ 包括 '_partials / page / categories.njk'  ％}
+        {％ elif  page。类型=== '时间表'  ％}
+          {％ 包括 '_partials / page / schedule.njk'  ％}
+        {％ else  ％}
+          
+           {％ - ENDIF  ％}
+{％ -如果是 页面。布局== 'bb'   ％}
+
+                    <样式>
+                      @ font-face {
+                        font-family： “ iconfont ”；
+                        src： url（ ' //at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168 '）;
+                        / * IE9 * /
+                        src： url（ ' //at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168#iefix '）格式（ ' Embedded-opentype '），
+                          / * IE6-IE8 * /
+                          url（'data：application / x-font-woff2; charset = utf-8; base64，d09GMgABAAAAAALcAAsAAAAAB2gAAAKPAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqCUII8ATYCJAMMCwgABCAFhG0HQBuEBsiuMRkynL4YFCHtLKs4b + K7 / 80U8DwHIB6 + xtr7u3vniDZI6tmnkyDS8NC5iFgJlE7pTPcO8e5b + 803aYQy8YtH1JPKyZzY3ttb1EonioVGSBAiRJp4JV9cFppCxLpe2z8sUs37O4QEDFRM0lFeAw4XN6bQPG06zTG8DRwHFOBeGEVWIjE + mP8wduVFPCbQNK4ktN8 / OgFJhbEqEFemLkEyFVcUVqoL1ZKDRbyIqafb9AA8 + 9 + + PX41IklQyY + PBSZ8KnR 9iBx0OxZcp8PxvGDHyFgACnFY6j8QCfMLIppKPmoCrGtW8OG / y0eufLX / 8AiJqDKa22AGWpMzUth6p6aARySQQRUUL4AnSBmuyvIwPdbz21OX5ybO5duOJifaLl6cvkrd1HR7kWEy6yikff29PvgO17V / TF / 9F / oN3PDqz22a719IYlZJHQetpLY08MV6fwFDrF0B6F4XyB3 / FyEEnZnU2XGtVwHvpxtA1d6pftKB4AcoWo4U1QQbiiy35Xow27whbwK2NNFlhAc99zeOtM4S6ikFQ1IzhqxuglAoC6ho2UBV3Raa5g0cbxnCRURpYM4pQOh3h6TXG7J + j4RCeULFqFdU9UcETYfRdGHLVJjpHk6SIBXlTTQV5mmWS6SD1jHSVx2JJ1U + a4p4YKawvrSSLQ2QR3yMLcGa3hBCQ40zF / VBC + Q4DH3OLFJExRDCb64un5S9qaIwF9L2cEQiEBWSbUImBePR3PFCOvf5​​MUS3yiHhNR0VySmEC5jTo7qKWgvCgN5r1XEtrwTW6BoEQYM0HONC / cBLHDPPIL98noUohAqjR7​​uvWVV1HlVbfWV + o / t8J6DJOJ4jRY6idmVKnmVS1q8tK8zFBAAA'），（）
+                          url（' //at.alicdn.com/t/font_1755564_z4mhxbw13mq.woff?t=1586882866168 '）格式（' woff '），
+                          url（' //at.alicdn.com/t/font_1755564_z4mhxbw13mq.ttf?t=1586882866168 '）格式（' truetype '），
+                          / * chrome，firefox，opera，Safari，Android，iOS 4.2+ * /
+                          url（' //at.alicdn.com/t/font_1755564_z4mhxbw13mq.svg?t=1586882866168#iconfont '）格式（' svg '）;
+                        / * iOS 4.1- * /
+                      }
+ 
+                      .iconfont {
+                        FONT-FAMILY： “ iconfont ” 重要！ ;
+                        字体大小： 16 px ;
+                        字体样式：正常；
+                        -webkit-font-smoothing：抗锯齿；
+                        -moz-osx-font-smoothing：灰度；
+                      }
+ 
+                      .icon-lianjie ：之前{
+                        内容： “ \ e6a3 ” ;
+                      }
+ 
+                      .icon-lianjie-copy ： {
+                        内容： “ \ e6a4 ” ;
+                      }
+                    </ style >
+
+                    <主 ID = “应用” >
+
+                        < p  class = “ tip ” >共计发送< span  v-html = ' count ' > </ span >条说说</ p >
+
+                        < div  class = “ timenode ”  v-for = “内容”  v-斗篷中的项目>
+
+                          < div  class = “ meta ” >
+
+                            < p > < time  v-bind：datetime = “ item.attributes.time ”  v-html = ' item.attributes.time ' > </ time > </ p >
+
+                          </ div >
+
+                          < div  class = “ body ” >
+
+                            < p  v-html = ' item.attributes.content ' > </ p >
+
+                          </ div >
+
+                        </ div >
+
+                      </ main >
+
+                {％ - ENDIF  ％}
+
+
+
+          <脚本 src = “ https://cdn.bootcss.com/vue/2.6.11/vue.min.js ” > </脚本>
+<脚本 src = “ https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js ” > </脚本>
+ 
+<脚本 类型= “ text / javascript ” >
+    var {
+        询问
+    } =  AV ;
+    AV。初始化（{
+        appId ： “ VmOE9RcU46yEUaDRmMa2nHOE-gzGzoHsz ”，
+        appKey ： “ p6E2TpJDT2VUR1ot3M14DXcr ”，
+        serverURLs ： “ https://VmOE9RcU.api.lncldglobal.com '
+    }）;
+ 
+    var query =  new  AV.Query（' content '）;
+ 
+    var app =  new  Vue（{
+        el ： ' #app '，
+        数据： {
+            页面： 0，
+            数： 0，
+            内容： []
+        }，
+        方法： {
+            loadMore ： 函数（事件）{
+                的getData（++此。页）;
+            }
+        }
+    }）
+ 
+    函数 urlToLink（str）{
+        //增加发图片功能
+        var re = / \ b https吗？：\ / \ /（？！\ S +（？：jpe ？ g | png | bmp | gif | webp | gif））\ S + / g ; 
+        var re_forpic = / \ b https ？：\ / \ / 。*？（\ GIF | \。 JPEG | \。 PNG | \。 JPG | \。对bmp | \。 WEBP）/克; 
+        str =  str。替换（重新功能（网站）{
+            返回 “ <a href='”  +网站+  “ 'target='_blank'>我们<I类=' iconfont图标-莲姐-复制'> </ i>的链接</A> ” ;
+        }）;
+        str =  str。替换（re_forpic，function（imgurl）{
+            返回 “ <img src =' ”  + imgurl +  “ '/> ” ;
+        }）;
+        返回str;
+    }
+    //友好地显示时间
+    函数 timeago（dateTimeStamp）{
+        var minutes =  1000  *  60 ; //把分，时，天，周，半个月，一个月用毫秒表示
+        var hour =分钟*  60 ;
+        var day = hour *  24 ;
+        var周=天*  7 ;
+        var month = day *  30 ;
+        var now =  new  Date（）。getTime（）; //获取当前时间毫秒
+        var diffValue = now - dateTimeStamp; //时间差
+        如果（diffValue <  0）{
+            回报;
+        }
+        var minC = diffValue /分钟；//计算时间差的分，时，天，周，月
+        var hourC = diffValue / hour;
+        var dayC = diffValue /天；
+        var weekC = diffValue /周；
+        VAR monthC = diffValue /月;
+        如果（monthC > =  1  && monthC <=  3）{
+            结果=  “  ”  +  parseInt（monthC）+  “月前”
+        }否则， 如果（weekC > =  1  && weekC <=  3）{
+            结果=  “  ”  +  parseInt（weekC）+  “周前”
+        }否则， 如果（dayC > =  1  && dayC <=  6）{
+            结果=  “  ”  +  parseInt（dayC）+  “天前”
+        }否则， 如果（hourC > =  1  && hourC <=  23）{
+            结果=  “  ”  +  parseInt（hourC）+  “小时前”
+        }否则， 如果（minC > =  1  && minC <=  59）{
+            结果=  “  ”  +  parseInt（minC）+  “分钟前”
+        }否则， 如果（diffValue > =  0  && diffValue <=分钟）{
+            结果=  “刚刚”
+        }其他{
+            var datetime =  new  Date（）;
+            日期时间。setTime（dateTimeStamp）;
+            var Nmonth =  datetime。getMonth（）+  1  <  10 吗？ “ 0 ”  +（日期时间。得到月（）+  1）： 日期时间。getMonth（）+  1 ;
+            var Ndate =  datetime。getDate（）<  10 吗？ “ 0 ”  + 日期时间。getDate（）： datetime。getDate（）;
+            结果= Nmonth +  “ - ”  + Ndate
+        }
+        返回结果；
+    }
+    函数 getData（page  =  0）{
+        查询。降序（' createdAt '）。跳过（第* 页10）。极限（10）。查找（）。然后（函数（结果）{
+            if（结果。长度 ==  0）{
+                警报（'之前没发表过说说了'）
+            }其他{
+                令resC =结果；
+                reqData =  false ;
+                resC。forEach（（i）=> {
+                    让dateTmp = 新 日期（我。createdAt）;
+                    我。属性。时间 =  timeago（dateTmp）;
+                    我。属性。含量 =  urlToLink（我。属性。内容）;
+                    应用程式。内容。推（i）;
+                }）
+            }
+ 
+        }，函数（错误）{}）；
+    }
+ 
+    getData（0）;
+ 
+    查询。数（）。然后（function（count）{
+        应用程式。计数 =计数;
+    }，函数（错误）{}）；
+ 
+ 
+</脚本>
+       
+      </ div >
+      
+      
+      
+    </ div >
+    {％ 包括 '_partials / page / breadcrumb.njk'  ％}
+    
+    
+    
+
+{％ endblock  ％}
+
+{％ block  sidebar  ％}
+  
+{％ endblock  ％}
