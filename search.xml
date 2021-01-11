@@ -73,24 +73,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP验证码</title>
-    <url>/2020/10/14/php-1/</url>
-    <content><![CDATA[<h2 id="php实现验证码功能"><a href="#php实现验证码功能" class="headerlink" title="php实现验证码功能"></a>php实现验证码功能</h2><h6 id="1一个长方形的底图；"><a href="#1一个长方形的底图；" class="headerlink" title="1一个长方形的底图；"></a>1<strong>一个长方形的底图</strong>；</h6><h6 id="2验证码的内容（数字，数字-英文，中文）；"><a href="#2验证码的内容（数字，数字-英文，中文）；" class="headerlink" title="2验证码的内容（数字，数字+英文，中文）；"></a>2<strong>验证码的内容（数字，数字+英文，中文）</strong>；</h6><h6 id="3各色的干扰点；"><a href="#3各色的干扰点；" class="headerlink" title="3各色的干扰点；"></a>3<strong>各色的干扰点</strong>；</h6><h6 id="4长短颜色不一的干扰线段。"><a href="#4长短颜色不一的干扰线段。" class="headerlink" title="4长短颜色不一的干扰线段。"></a>4<strong>长短颜色不一的干扰线段</strong>。</h6><p>验证码图是长方形的100*30的大小    </p>
- <a id="more"></a> 
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建验证码画布</span></span><br><span class="line">$img_w = <span class="number">100</span>;  <span class="comment">//验证码的宽度</span></span><br><span class="line">$img_h = <span class="number">30</span>;   <span class="comment">//验证码的高度</span></span><br><span class="line">$img = imagecreatetruecolor($img_w, $img_h);         <span class="comment">//创建画布</span></span><br><span class="line">$bg_color = imagecolorallocate($img,<span class="number">0xcc</span>,<span class="number">0xcc</span>,<span class="number">0xcc</span>); <span class="comment">//为画布分配颜色</span></span><br><span class="line">imagefill($img,<span class="number">0</span>,<span class="number">0</span>,$bg_color);</span><br><span class="line"></span><br><span class="line">$count = <span class="number">4</span>; <span class="comment">//验证码位数</span></span><br><span class="line">$charset = <span class="string">&#x27;ABCDEFGHJKLMNPQRSTUVWXYZ23456789&#x27;</span>; <span class="comment">//随机因子</span></span><br><span class="line">$charset_len = strlen($charset)<span class="number">-1</span>; <span class="comment">//计算随机因子长度（作为取出时的索引）</span></span><br><span class="line">$code = <span class="string">&#x27;&#x27;</span>; <span class="comment">//保存生成的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i) &#123;</span><br><span class="line">    <span class="comment">//通过索引取出字符，mt_rand()用于获取指定范围内的随机数</span></span><br><span class="line">	$code .= $charset[mt_rand(<span class="number">0</span>,$charset_len)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在画布中绘制验证码文本</span></span><br><span class="line">$fontSize = <span class="number">16</span>;    <span class="comment">//文字大小</span></span><br><span class="line">$fontStyle = realpath(<span class="string">&#x27;./SourceCodePro-Bold.ttf&#x27;</span>); <span class="comment">//字体样式</span></span><br><span class="line"><span class="comment">//生成指定长度的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成字体颜色</span></span><br><span class="line">    $fontColor = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">100</span>),mt_rand(<span class="number">0</span>,<span class="number">50</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    imagettftext (</span><br><span class="line">	    $img,        <span class="comment">//画布资源</span></span><br><span class="line">         $fontSize,  <span class="comment">//文字大小</span></span><br><span class="line">	    mt_rand(<span class="number">0</span>,<span class="number">20</span>) - mt_rand(<span class="number">0</span>,<span class="number">25</span>),            <span class="comment">//随机设置文字倾斜角度</span></span><br><span class="line">	    $fontSize*$i+<span class="number">20</span>,mt_rand($img_h/<span class="number">2</span>,$img_h), <span class="comment">//随机设置文字坐标，并自动计算间距</span></span><br><span class="line">	    $fontColor,  <span class="comment">//文字颜色</span></span><br><span class="line">	    $fontStyle,  <span class="comment">//文字字体</span></span><br><span class="line">	    $code[$i] 	 <span class="comment">//文字内容</span></span><br><span class="line">	);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//为验证码图片生成彩色噪点</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">300</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰点</span></span><br><span class="line">  	imagesetpixel($img,mt_rand(<span class="number">0</span>,$img_w),mt_rand(<span class="number">0</span>,$img_h),$color);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">$color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">imagerectangle($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), $color);</span><br><span class="line">imageellipse($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), <span class="number">20</span>, <span class="number">20</span>, $color);	</span><br><span class="line"><span class="comment">//绘制干扰线</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">3</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成干扰线颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰线</span></span><br><span class="line">	  imageline($img,mt_rand(<span class="number">0</span>,$img_w),<span class="number">0</span>,mt_rand(<span class="number">0</span>,$img_h*<span class="number">5</span>),$img_h,$color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将生成的文本保存到Session中</span></span><br><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">&#x27;captcha&#x27;</span>] = $code;</span><br><span class="line">$fontfile =realpath(<span class="string">&#x27;SourceCodePro-Bold.ttf&#x27;</span>);</span><br><span class="line"><span class="comment">//imagettftext($img, 16, 0, 20, 30, $red, $fontfile, $code);</span></span><br><span class="line"><span class="comment">//imagerectangle($canvas, 50, 50, 150, 150, $pink);	</span></span><br><span class="line">header(<span class="string">&#x27;Content-Type: image/gif&#x27;</span>);</span><br><span class="line">imagegif($img);</span><br></pre></td></tr></table></figure>
-
-<p>​                                                               源码里没有html代码</p>
-<p><img src="D:\blog\source_posts\php-1\php.jpg"></p>
-]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>PHP验证码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PHP连接MySQL数据库</title>
     <url>/2020/11/11/php11-11/</url>
     <content><![CDATA[<h2 id="PHP连接MySQL数据库"><a href="#PHP连接MySQL数据库" class="headerlink" title="PHP连接MySQL数据库"></a>PHP连接MySQL数据库</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;Content-Type:text/html;charset=utf-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
@@ -123,33 +105,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Typora编辑器</title>
-    <url>/2020/10/11/yige/</url>
-    <content><![CDATA[<h2 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h2><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>下面是我觉得比较好的两个点：</p>
-<p>①实时预览：在<code>Typora</code>中我们输入标记语法就能实时看到排版效果，解决了传统<code>Markdown</code>编辑器左右分屏式看起来麻烦的烦恼。</p>
-<p>②快捷键输入：很多标记语法我们都可以使用快捷键输入，免去了手动敲语法的烦恼。</p>
+    <title>PHP验证码</title>
+    <url>/2020/10/14/php-1/</url>
+    <content><![CDATA[<h2 id="php实现验证码功能"><a href="#php实现验证码功能" class="headerlink" title="php实现验证码功能"></a>php实现验证码功能</h2><h6 id="1一个长方形的底图；"><a href="#1一个长方形的底图；" class="headerlink" title="1一个长方形的底图；"></a>1<strong>一个长方形的底图</strong>；</h6><h6 id="2验证码的内容（数字，数字-英文，中文）；"><a href="#2验证码的内容（数字，数字-英文，中文）；" class="headerlink" title="2验证码的内容（数字，数字+英文，中文）；"></a>2<strong>验证码的内容（数字，数字+英文，中文）</strong>；</h6><h6 id="3各色的干扰点；"><a href="#3各色的干扰点；" class="headerlink" title="3各色的干扰点；"></a>3<strong>各色的干扰点</strong>；</h6><h6 id="4长短颜色不一的干扰线段。"><a href="#4长短颜色不一的干扰线段。" class="headerlink" title="4长短颜色不一的干扰线段。"></a>4<strong>长短颜色不一的干扰线段</strong>。</h6><p>验证码图是长方形的100*30的大小    </p>
  <a id="more"></a> 
 
-<h3 id="常用快捷键和语法"><a href="#常用快捷键和语法" class="headerlink" title="常用快捷键和语法"></a>常用快捷键和语法</h3><p>标题：Ctrl+1、2、3…对应一、二、三…级标题（光标定位到需要设置为标题的行，按快捷键）</p>
-<p><strong>加粗</strong>：Ctrl+B（选中要加粗的文本，按快捷键）</p>
-<p><em>斜体</em>：Ctrl+I（选中要设置斜体的文本，按快捷键）</p>
-<p>下划线：Ctrl+U（选中要加下划线的文本，按快捷键）</p>
-<p>删除线：Alt+Shift+5（选中要加删除线的文本，按快捷键）</p>
-<p><code>代码片段</code>：Ctrl+Shift+`（选中要设置为代码片段的文本，按快捷键）</p>
-<p>代码块：Ctrl+Shift+K（任意位置按快捷键，选择编程语言然后在代码块中输入代码）</p>
-<p>切换到下一行：Ctrl+Enter（任意位置按快捷键，在代码块中可以跳出代码块另起一行）</p>
-<p><a href="https://link.zhihu.com/?target=https://www.baidu.com/">链接</a>：Ctrl+K（先复制链接，然后选中要加链接的文本，按快捷键。Ctrl+左键点击文本可跳转到对应链接）</p>
-<p>取消格式：再次按相同的快捷键即可</p>
-<p>有序列表：数字+点+空格</p>
-<p>任务列表：加号或减号+空格</p>
-<p>切换到列表下一行：Space+Enter</p>
-<p>嵌套列表：按Tab键</p>
-<p>退出列表：按 Shift+Tab</p>
-<p>插入表格：Ctrl+T</p>
-<p>引用：输入&gt;后面加空格，或者Ctrl+Shift+Q</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建验证码画布</span></span><br><span class="line">$img_w = <span class="number">100</span>;  <span class="comment">//验证码的宽度</span></span><br><span class="line">$img_h = <span class="number">30</span>;   <span class="comment">//验证码的高度</span></span><br><span class="line">$img = imagecreatetruecolor($img_w, $img_h);         <span class="comment">//创建画布</span></span><br><span class="line">$bg_color = imagecolorallocate($img,<span class="number">0xcc</span>,<span class="number">0xcc</span>,<span class="number">0xcc</span>); <span class="comment">//为画布分配颜色</span></span><br><span class="line">imagefill($img,<span class="number">0</span>,<span class="number">0</span>,$bg_color);</span><br><span class="line"></span><br><span class="line">$count = <span class="number">4</span>; <span class="comment">//验证码位数</span></span><br><span class="line">$charset = <span class="string">&#x27;ABCDEFGHJKLMNPQRSTUVWXYZ23456789&#x27;</span>; <span class="comment">//随机因子</span></span><br><span class="line">$charset_len = strlen($charset)<span class="number">-1</span>; <span class="comment">//计算随机因子长度（作为取出时的索引）</span></span><br><span class="line">$code = <span class="string">&#x27;&#x27;</span>; <span class="comment">//保存生成的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i) &#123;</span><br><span class="line">    <span class="comment">//通过索引取出字符，mt_rand()用于获取指定范围内的随机数</span></span><br><span class="line">	$code .= $charset[mt_rand(<span class="number">0</span>,$charset_len)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在画布中绘制验证码文本</span></span><br><span class="line">$fontSize = <span class="number">16</span>;    <span class="comment">//文字大小</span></span><br><span class="line">$fontStyle = realpath(<span class="string">&#x27;./SourceCodePro-Bold.ttf&#x27;</span>); <span class="comment">//字体样式</span></span><br><span class="line"><span class="comment">//生成指定长度的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成字体颜色</span></span><br><span class="line">    $fontColor = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">100</span>),mt_rand(<span class="number">0</span>,<span class="number">50</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    imagettftext (</span><br><span class="line">	    $img,        <span class="comment">//画布资源</span></span><br><span class="line">         $fontSize,  <span class="comment">//文字大小</span></span><br><span class="line">	    mt_rand(<span class="number">0</span>,<span class="number">20</span>) - mt_rand(<span class="number">0</span>,<span class="number">25</span>),            <span class="comment">//随机设置文字倾斜角度</span></span><br><span class="line">	    $fontSize*$i+<span class="number">20</span>,mt_rand($img_h/<span class="number">2</span>,$img_h), <span class="comment">//随机设置文字坐标，并自动计算间距</span></span><br><span class="line">	    $fontColor,  <span class="comment">//文字颜色</span></span><br><span class="line">	    $fontStyle,  <span class="comment">//文字字体</span></span><br><span class="line">	    $code[$i] 	 <span class="comment">//文字内容</span></span><br><span class="line">	);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//为验证码图片生成彩色噪点</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">300</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰点</span></span><br><span class="line">  	imagesetpixel($img,mt_rand(<span class="number">0</span>,$img_w),mt_rand(<span class="number">0</span>,$img_h),$color);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">$color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">imagerectangle($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), $color);</span><br><span class="line">imageellipse($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), <span class="number">20</span>, <span class="number">20</span>, $color);	</span><br><span class="line"><span class="comment">//绘制干扰线</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">3</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成干扰线颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰线</span></span><br><span class="line">	  imageline($img,mt_rand(<span class="number">0</span>,$img_w),<span class="number">0</span>,mt_rand(<span class="number">0</span>,$img_h*<span class="number">5</span>),$img_h,$color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将生成的文本保存到Session中</span></span><br><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">&#x27;captcha&#x27;</span>] = $code;</span><br><span class="line">$fontfile =realpath(<span class="string">&#x27;SourceCodePro-Bold.ttf&#x27;</span>);</span><br><span class="line"><span class="comment">//imagettftext($img, 16, 0, 20, 30, $red, $fontfile, $code);</span></span><br><span class="line"><span class="comment">//imagerectangle($canvas, 50, 50, 150, 150, $pink);	</span></span><br><span class="line">header(<span class="string">&#x27;Content-Type: image/gif&#x27;</span>);</span><br><span class="line">imagegif($img);</span><br></pre></td></tr></table></figure>
+
+<p>​                                                               源码里没有html代码</p>
+<p><img src="D:\blog\source_posts\php-1\php.jpg"></p>
 ]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
       <tags>
-        <tag>编辑器</tag>
+        <tag>PHP验证码</tag>
       </tags>
   </entry>
   <entry>
@@ -181,6 +151,36 @@
       <tags>
         <tag>博客</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora编辑器</title>
+    <url>/2020/10/11/yige/</url>
+    <content><![CDATA[<h2 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h2><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>下面是我觉得比较好的两个点：</p>
+<p>①实时预览：在<code>Typora</code>中我们输入标记语法就能实时看到排版效果，解决了传统<code>Markdown</code>编辑器左右分屏式看起来麻烦的烦恼。</p>
+<p>②快捷键输入：很多标记语法我们都可以使用快捷键输入，免去了手动敲语法的烦恼。</p>
+ <a id="more"></a> 
+
+<h3 id="常用快捷键和语法"><a href="#常用快捷键和语法" class="headerlink" title="常用快捷键和语法"></a>常用快捷键和语法</h3><p>标题：Ctrl+1、2、3…对应一、二、三…级标题（光标定位到需要设置为标题的行，按快捷键）</p>
+<p><strong>加粗</strong>：Ctrl+B（选中要加粗的文本，按快捷键）</p>
+<p><em>斜体</em>：Ctrl+I（选中要设置斜体的文本，按快捷键）</p>
+<p>下划线：Ctrl+U（选中要加下划线的文本，按快捷键）</p>
+<p>删除线：Alt+Shift+5（选中要加删除线的文本，按快捷键）</p>
+<p><code>代码片段</code>：Ctrl+Shift+`（选中要设置为代码片段的文本，按快捷键）</p>
+<p>代码块：Ctrl+Shift+K（任意位置按快捷键，选择编程语言然后在代码块中输入代码）</p>
+<p>切换到下一行：Ctrl+Enter（任意位置按快捷键，在代码块中可以跳出代码块另起一行）</p>
+<p><a href="https://link.zhihu.com/?target=https://www.baidu.com/">链接</a>：Ctrl+K（先复制链接，然后选中要加链接的文本，按快捷键。Ctrl+左键点击文本可跳转到对应链接）</p>
+<p>取消格式：再次按相同的快捷键即可</p>
+<p>有序列表：数字+点+空格</p>
+<p>任务列表：加号或减号+空格</p>
+<p>切换到列表下一行：Space+Enter</p>
+<p>嵌套列表：按Tab键</p>
+<p>退出列表：按 Shift+Tab</p>
+<p>插入表格：Ctrl+T</p>
+<p>引用：输入&gt;后面加空格，或者Ctrl+Shift+Q</p>
+]]></content>
+      <tags>
+        <tag>编辑器</tag>
       </tags>
   </entry>
 </search>
