@@ -1,392 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Java判断语句 If Switch</title>
-    <url>/2021/01/27/Javaifswitch/</url>
-    <content><![CDATA[<h2 id="Java判断语句If-和Switch"><a href="#Java判断语句If-和Switch" class="headerlink" title="Java判断语句If 和Switch"></a>Java判断语句If 和Switch</h2><h2 id="If条件判断"><a href="#If条件判断" class="headerlink" title="If条件判断"></a>If条件判断</h2><p>1、if语句用于判断不同的条件，根据判断的结果执行不同的代码。</p>
-<p>2、if语句判断的条件可以是关系运算、逻辑运算，if语句根据逻辑值true、false来决定执行不同的代码。 </p>
-<p>3、if语句在开发中使用极为广泛。</p>
-<h3 id="If语法"><a href="#If语法" class="headerlink" title="If语法"></a>If语法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">if</span>（条件<span class="number">1</span>) &#123;</span><br><span class="line">              代码块<span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(条件<span class="number">2</span>)&#123;</span><br><span class="line">              代码块<span class="number">2</span></span><br><span class="line">      &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      		代码块<span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="If实例"><a href="#If实例" class="headerlink" title="If实例"></a>If实例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demoif</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] str)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的考试成绩：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">double</span> chengJi = input.nextDouble();</span><br><span class="line">        <span class="keyword">if</span> (chengJi&gt;=<span class="number">60</span> &amp; chengJi&lt;<span class="number">90</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的考试成绩合格！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (chengJi&gt;=<span class="number">90</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的考试成绩优异！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的成绩不及格，请您重新考试！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在使用if语句时，注意尽量把容易满足的条件写在前面。</p>
-<h2 id="Switch条件判断"><a href="#Switch条件判断" class="headerlink" title="Switch条件判断"></a>Switch条件判断</h2><h3 id="Switch关键字"><a href="#Switch关键字" class="headerlink" title="Switch关键字"></a>Switch关键字</h3><p>1、switch：表示条件表达式，括号里的值是一个规定数据类型的值。</p>
-<p>2、case：表示条件分支，case后面跟一个常量，每个case后面的值必须不一样。case的个数可以为0个。</p>
-<p>3、default：表示默认分支，default可以省略，通常放在最后。</p>
-<p>4、break：表示“停止”，跳出当前switch语句。</p>
-<h3 id="Switch语法"><a href="#Switch语法" class="headerlink" title="Switch语法"></a>Switch语法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> （表达式）&#123;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">1</span>：</span><br><span class="line">        <span class="comment">// 代码块1;</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">2</span>：</span><br><span class="line">　　　　<span class="comment">// 代码块2;</span></span><br><span class="line">　　　　<span class="keyword">break</span>;</span><br><span class="line">　　<span class="keyword">default</span>：</span><br><span class="line">　　　　<span class="comment">// 代码块n;</span></span><br><span class="line">　　　　<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Switch实例"><a href="#Switch实例" class="headerlink" title="Switch实例"></a>Switch实例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoSwitch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的名次：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> mingCi = input.nextInt();</span><br><span class="line">        <span class="keyword">switch</span>(mingCi)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了一等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了二等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了三等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;对不起，您没有进入前三名。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Switch语句中的表达式结果类型只支持是int，String，enum型的。</p>
-<h2 id="If和Switch的区别"><a href="#If和Switch的区别" class="headerlink" title="If和Switch的区别"></a>If和Switch的区别</h2><h3 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h3><ul>
-<li>if和switch都是分支语句，都是对超过一种情况的事件进行处理。</li>
-</ul>
-<h3 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a>不同点：</h3><ul>
-<li>switch更适合处理分支情况较多，判断条件类型单一，只有一个入口的事件<br>if更适合处理分支情况较少，判断条件类型不是单一的事件</li>
-<li>switch在分支执行完成后，如果没有break跳出的话，会继续向下面的分支执行<br>if只要一个分支被执行了，后面的分支就不再执行了</li>
-<li>switch为等值判断，不允许比如 &gt;= &lt;= 等判断<br>if为等值和区间都可以，if的使用范围更大</li>
-</ul>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Java判断语句 If Switch</title>
+      <link href="2021/01/27/Javaifswitch/"/>
+      <url>2021/01/27/Javaifswitch/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Java判断语句If-和Switch"><a href="#Java判断语句If-和Switch" class="headerlink" title="Java判断语句If 和Switch"></a>Java判断语句If 和Switch</h2><h2 id="If条件判断"><a href="#If条件判断" class="headerlink" title="If条件判断"></a>If条件判断</h2><p>1、if语句用于判断不同的条件，根据判断的结果执行不同的代码。</p><p>2、if语句判断的条件可以是关系运算、逻辑运算，if语句根据逻辑值true、false来决定执行不同的代码。 </p><p>3、if语句在开发中使用极为广泛。</p><h3 id="If语法"><a href="#If语法" class="headerlink" title="If语法"></a>If语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span>（条件<span class="number">1</span>) &#123;</span><br><span class="line">              代码块<span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(条件<span class="number">2</span>)&#123;</span><br><span class="line">              代码块<span class="number">2</span></span><br><span class="line">      &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      代码块<span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="If实例"><a href="#If实例" class="headerlink" title="If实例"></a>If实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demoif</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] str)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的考试成绩：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">double</span> chengJi = input.nextDouble();</span><br><span class="line">        <span class="keyword">if</span> (chengJi&gt;=<span class="number">60</span> &amp; chengJi&lt;<span class="number">90</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的考试成绩合格！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (chengJi&gt;=<span class="number">90</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的考试成绩优异！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的成绩不及格，请您重新考试！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在使用if语句时，注意尽量把容易满足的条件写在前面。</p><h2 id="Switch条件判断"><a href="#Switch条件判断" class="headerlink" title="Switch条件判断"></a>Switch条件判断</h2><h3 id="Switch关键字"><a href="#Switch关键字" class="headerlink" title="Switch关键字"></a>Switch关键字</h3><p>1、switch：表示条件表达式，括号里的值是一个规定数据类型的值。</p><p>2、case：表示条件分支，case后面跟一个常量，每个case后面的值必须不一样。case的个数可以为0个。</p><p>3、default：表示默认分支，default可以省略，通常放在最后。</p><p>4、break：表示“停止”，跳出当前switch语句。</p><h3 id="Switch语法"><a href="#Switch语法" class="headerlink" title="Switch语法"></a>Switch语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> （表达式）&#123;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">1</span>：</span><br><span class="line">        <span class="comment">// 代码块1;</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">2</span>：</span><br><span class="line">　　　　<span class="comment">// 代码块2;</span></span><br><span class="line">　　　　<span class="keyword">break</span>;</span><br><span class="line">　　<span class="keyword">default</span>：</span><br><span class="line">　　　　<span class="comment">// 代码块n;</span></span><br><span class="line">　　　　<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Switch实例"><a href="#Switch实例" class="headerlink" title="Switch实例"></a>Switch实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoSwitch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的名次：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> mingCi = input.nextInt();</span><br><span class="line">        <span class="keyword">switch</span>(mingCi)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了一等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了二等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;恭喜您，获得了三等奖。&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;对不起，您没有进入前三名。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Switch语句中的表达式结果类型只支持是int，String，enum型的。</p><h2 id="If和Switch的区别"><a href="#If和Switch的区别" class="headerlink" title="If和Switch的区别"></a>If和Switch的区别</h2><h3 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h3><ul><li>if和switch都是分支语句，都是对超过一种情况的事件进行处理。</li></ul><h3 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a>不同点：</h3><ul><li>switch更适合处理分支情况较多，判断条件类型单一，只有一个入口的事件<br>if更适合处理分支情况较少，判断条件类型不是单一的事件</li><li>switch在分支执行完成后，如果没有break跳出的话，会继续向下面的分支执行<br>if只要一个分支被执行了，后面的分支就不再执行了</li><li>switch为等值判断，不允许比如 &gt;= &lt;= 等判断<br>if为等值和区间都可以，if的使用范围更大</li></ul>]]></content>
+      
+      
       <categories>
-        <category>Java</category>
+          
+          <category> Java </category>
+          
       </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>判断语句</tag>
-        <tag>if Switch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java循环语句 for while doWhile</title>
-    <url>/2021/01/27/Javaxunhuan/</url>
-    <content><![CDATA[<h2 id="Java循环语句-for-while-doWhile"><a href="#Java循环语句-for-while-doWhile" class="headerlink" title="Java循环语句 for while doWhile"></a>Java循环语句 for while doWhile</h2><h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><h3 id="for语法"><a href="#for语法" class="headerlink" title="for语法"></a>for语法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">for</span>(初始化表达式;判断表达式;递增（递减）表达式)&#123;</span><br><span class="line">    执行语句;   <span class="comment">//一段代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>for</td>
-<td>for 循环关键字，后面 {}里面是循环主体</td>
-</tr>
-<tr>
-<td>初始化表达式</td>
-<td>数字类型，判断条件中数字的初始值</td>
-</tr>
-<tr>
-<td>判断表达式</td>
-<td>条件语句，返回 boolean 类型，如果是 true 就执行方法体里面的语句</td>
-</tr>
-<tr>
-<td>赋值增减量</td>
-<td>对初值进行加减操作</td>
-</tr>
-</tbody></table>
-<h3 id="for实例"><a href="#for实例" class="headerlink" title="for实例"></a>for实例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demofor2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入一个值：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> num = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>, j=num; i&lt;num;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;+&quot;</span>+j+<span class="string">&quot;=&quot;</span>+num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码输出结果：</p>
-<img src="https://tvax3.sinaimg.cn/large/007aXOcdly1gn4wimns4rj30ey0dbt94.jpg" alt="image" width="538" data-width="538" data-height="479">
-
-
-
-<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><h3 id="while语句说明"><a href="#while语句说明" class="headerlink" title="while语句说明"></a>while语句说明</h3><p>while关键字的中文意bai思是du“当……的时候”，也就是当条件成立时循环执行对应的代码。while语句是循环语句中基本的结构，语法格式比较简单。</p>
-<h3 id="while语法"><a href="#while语法" class="headerlink" title="while语法"></a>while语法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(循环条件)&#123;</span><br><span class="line">            <span class="comment">//循环输出语句</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="while实例"><a href="#while实例" class="headerlink" title="while实例"></a>while实例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demowhile2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;今天你的成绩合格了吗？(y/n)&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String anu = input.next();</span><br><span class="line">        <span class="keyword">while</span>(!<span class="string">&quot;y&quot;</span>.equals(anu))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;上午学习理论！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;下午上机编程！&quot;</span>);</span><br><span class="line">            System.out.print(<span class="string">&quot;今天你及格了吗？（y/n）&quot;</span>);</span><br><span class="line">            anu = input.next();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;完成学习任务！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Do-while循环"><a href="#Do-while循环" class="headerlink" title="Do-while循环"></a>Do-while循环</h2><h3 id="Do-while语法说明"><a href="#Do-while语法说明" class="headerlink" title="Do-while语法说明"></a>Do-while语法说明</h3><p>do-while是while的特殊种类，do-while会先运行一次do里的代码，然后进行while的Boolean判定，然后返回按照do里的方法重新运行。（先执行，后判断的while loop）</p>
-<h3 id="Do-while语法"><a href="#Do-while语法" class="headerlink" title="Do-while语法"></a>Do-while语法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">　　<span class="comment">//循环体语句;</span></span><br><span class="line">　　<span class="comment">//控制条件语句;</span></span><br><span class="line">&#125;<span class="keyword">while</span>(判断条件语句);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Do-while实例"><a href="#Do-while实例" class="headerlink" title="Do-while实例"></a>Do-while实例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoDowhile</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String jieGuo;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;上机进行编程。&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;今天你及格了吗（y/n）&quot;</span>);</span><br><span class="line">            Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">            jieGuo = input.next();</span><br><span class="line">        &#125;<span class="keyword">while</span>(!<span class="string">&quot;y&quot;</span>.equals(jieGuo));</span><br><span class="line">        System.out.println(<span class="string">&quot;及格了就不用上机编程了。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong>总结: 三种循环语句的区别:</strong><br>1.do…while循环至少执行一次循环体.<br>2.而for,while循环必须先判断条件是否成立，然后决定是否执行循环体语句.<br>3.for相对while和do-while来说相对简洁，判断方式和表达式只用写在一行就行.</li>
-</ol>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 判断语句 </tag>
+            
+            <tag> if Switch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java循环语句 for while doWhile</title>
+      <link href="2021/01/27/Javaxunhuan/"/>
+      <url>2021/01/27/Javaxunhuan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Java循环语句-for-while-doWhile"><a href="#Java循环语句-for-while-doWhile" class="headerlink" title="Java循环语句 for while doWhile"></a>Java循环语句 for while doWhile</h2><h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><h3 id="for语法"><a href="#for语法" class="headerlink" title="for语法"></a>for语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(初始化表达式;判断表达式;递增（递减）表达式)&#123;</span><br><span class="line">    执行语句;   <span class="comment">//一段代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>for</td><td>for 循环关键字，后面 {}里面是循环主体</td></tr><tr><td>初始化表达式</td><td>数字类型，判断条件中数字的初始值</td></tr><tr><td>判断表达式</td><td>条件语句，返回 boolean 类型，如果是 true 就执行方法体里面的语句</td></tr><tr><td>赋值增减量</td><td>对初值进行加减操作</td></tr></tbody></table><h3 id="for实例"><a href="#for实例" class="headerlink" title="for实例"></a>for实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demofor2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入一个值：&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> num = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>, j=num; i&lt;num;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;+&quot;</span>+j+<span class="string">&quot;=&quot;</span>+num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代码输出结果：</p><img src="https://tvax3.sinaimg.cn/large/007aXOcdly1gn4wimns4rj30ey0dbt94.jpg" alt="image" width="538" data-width="538" data-height="479"><h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><h3 id="while语句说明"><a href="#while语句说明" class="headerlink" title="while语句说明"></a>while语句说明</h3><p>while关键字的中文意bai思是du“当……的时候”，也就是当条件成立时循环执行对应的代码。while语句是循环语句中基本的结构，语法格式比较简单。</p><h3 id="while语法"><a href="#while语法" class="headerlink" title="while语法"></a>while语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(循环条件)&#123;</span><br><span class="line">            <span class="comment">//循环输出语句</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><h3 id="while实例"><a href="#while实例" class="headerlink" title="while实例"></a>while实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demowhile2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;今天你的成绩合格了吗？(y/n)&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String anu = input.next();</span><br><span class="line">        <span class="keyword">while</span>(!<span class="string">&quot;y&quot;</span>.equals(anu))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;上午学习理论！&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;下午上机编程！&quot;</span>);</span><br><span class="line">            System.out.print(<span class="string">&quot;今天你及格了吗？（y/n）&quot;</span>);</span><br><span class="line">            anu = input.next();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;完成学习任务！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Do-while循环"><a href="#Do-while循环" class="headerlink" title="Do-while循环"></a>Do-while循环</h2><h3 id="Do-while语法说明"><a href="#Do-while语法说明" class="headerlink" title="Do-while语法说明"></a>Do-while语法说明</h3><p>do-while是while的特殊种类，do-while会先运行一次do里的代码，然后进行while的Boolean判定，然后返回按照do里的方法重新运行。（先执行，后判断的while loop）</p><h3 id="Do-while语法"><a href="#Do-while语法" class="headerlink" title="Do-while语法"></a>Do-while语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">　　<span class="comment">//循环体语句;</span></span><br><span class="line">　　<span class="comment">//控制条件语句;</span></span><br><span class="line">&#125;<span class="keyword">while</span>(判断条件语句);</span><br></pre></td></tr></table></figure><h3 id="Do-while实例"><a href="#Do-while实例" class="headerlink" title="Do-while实例"></a>Do-while实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoDowhile</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String jieGuo;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;上机进行编程。&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;今天你及格了吗（y/n）&quot;</span>);</span><br><span class="line">            Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">            jieGuo = input.next();</span><br><span class="line">        &#125;<span class="keyword">while</span>(!<span class="string">&quot;y&quot;</span>.equals(jieGuo));</span><br><span class="line">        System.out.println(<span class="string">&quot;及格了就不用上机编程了。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol><li><strong>总结: 三种循环语句的区别:</strong><br>1.do…while循环至少执行一次循环体.<br>2.而for,while循环必须先判断条件是否成立，然后决定是否执行循环体语句.<br>3.for相对while和do-while来说相对简洁，判断方式和表达式只用写在一行就行.</li></ol>]]></content>
+      
+      
       <categories>
-        <category>Java</category>
+          
+          <category> Java </category>
+          
       </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>循环语句</tag>
-        <tag>for</tag>
-        <tag>while</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS伪类和伪元素的使用</title>
-    <url>/2021/01/13/cssweilei/</url>
-    <content><![CDATA[<h1 id="CSS伪类和伪元素的使用"><a href="#CSS伪类和伪元素的使用" class="headerlink" title="CSS伪类和伪元素的使用"></a>CSS伪类和伪元素的使用</h1><h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p> <strong>伪类</strong>： 一个伪类是我们可以为了增加CSS选择一个关键字定义一个特殊状态的属于HTML元素。我们可以使用冒号语法 将伪类添加到CSS选择器，:如下所示：a:hover{ … } 。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="right">描述</th>
-<th>CSS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>:active</td>
-<td align="right">向被激活的元素添加样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:focus</td>
-<td align="right">向拥有键盘输入焦点的元素添加样式。</td>
-<td>2</td>
-</tr>
-<tr>
-<td>:hover</td>
-<td align="right">当鼠标悬浮在元素上方时，向元素添加样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:link</td>
-<td align="right">向未被访问的链接添加样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:visited</td>
-<td align="right">向已被访问的链接添加样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:first-child</td>
-<td align="right">向元素的第一个子元素添加样式。</td>
-<td>2</td>
-</tr>
-<tr>
-<td>:lang</td>
-<td align="right">向带有指定 lang 属性的元素添加样式。</td>
-<td>2</td>
-</tr>
-<tr>
-<td>:nth-child(2n)</td>
-<td align="right">向元素的偶数元素添加样式</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="a标记的伪类选择器"><a href="#a标记的伪类选择器" class="headerlink" title="a标记的伪类选择器"></a>a标记的伪类选择器</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="comment">/* 超链接为访问时的状态 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;</span></span><br><span class="line">				color: red;</span><br><span class="line">				text-decoration: none;</span><br><span class="line">			&#125;</span><br><span class="line">			a&#123;</span><br><span class="line">				font-size: 300px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 设置超链接访问过的网址状态 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;</span></span><br><span class="line">				color: black;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/*设置超链接鼠标悬停时候的样式 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span></span><br><span class="line"><span class="css">				<span class="selector-tag">text-shadow</span>: 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-id">#FF0000</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="comment">/* 设置超链接单机未释放时候的样子 */</span></span></span><br><span class="line"><span class="css">			<span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;</span></span><br><span class="line">				color: lawngreen;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>百度一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p><strong>伪元素</strong>： css的伪元素，之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素。 </p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-<th>CSS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>:first-letter</td>
-<td>向文本的第一个字母添加特殊样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:first-line</td>
-<td>向文本的首行添加特殊样式。</td>
-<td>1</td>
-</tr>
-<tr>
-<td>:before</td>
-<td>在元素之前添加内容。</td>
-<td>2</td>
-</tr>
-<tr>
-<td>:after</td>
-<td>在元素之后添加内容。</td>
-<td>2</td>
-</tr>
-</tbody></table>
-<h2 id="用于文本的"><a href="#用于文本的" class="headerlink" title="用于文本的"></a>用于文本的</h2><h3 id="first-line-伪元素"><a href="#first-line-伪元素" class="headerlink" title=":first-line 伪元素"></a>:first-line 伪元素</h3><p>可以通过这个属性设置文本第一行的特殊效果，比如一段文字的第一行为红色，其他为黑色。</p>
-<p>如果不通过这个方式来实现，就比较麻烦。因为屏幕适配的原因，你可能不能确定哪些文字属于第一行</p>
-<h3 id="first-letter-伪元素"><a href="#first-letter-伪元素" class="headerlink" title=":first-letter 伪元素"></a>:first-letter 伪元素</h3><p>和first-line 相似，这个只是设置第一个字符的特殊效果。比如第一个字的字体比别的大</p>
-<p>如果不通过这个方式实现，那么就可能还要处理对齐，这种实现方式更方便</p>
-<h3 id="before-和-after伪元素使用"><a href="#before-和-after伪元素使用" class="headerlink" title=":before 和 :after伪元素使用"></a>:before 和 :after伪元素使用</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>伪类<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">	p&#123;</span><br><span class="line"><span class="css">		<span class="selector-tag">width</span>: <span class="selector-tag">fit-content</span>;    <span class="comment">/* p标签的宽度随着文字内容长短而变化 */</span></span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="css">	<span class="selector-tag">p</span><span class="selector-pseudo">::before</span>&#123;</span></span><br><span class="line">		content: &#x27;&#x27;;		/* 内容为空 */</span><br><span class="line">		height: 3px;</span><br><span class="line">		background-color: yellow;</span><br><span class="line">		display: block;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="css">	<span class="selector-tag">p</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">		content: &#x27;&#x27;;</span><br><span class="line">		height: 3px;</span><br><span class="line">		background-color: red;</span><br><span class="line">		display: block;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>文本文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 循环语句 </tag>
+            
+            <tag> for </tag>
+            
+            <tag> while </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS伪类和伪元素的使用</title>
+      <link href="2021/01/13/cssweilei/"/>
+      <url>2021/01/13/cssweilei/</url>
+      
+        <content type="html"><![CDATA[<h1 id="CSS伪类和伪元素的使用"><a href="#CSS伪类和伪元素的使用" class="headerlink" title="CSS伪类和伪元素的使用"></a>CSS伪类和伪元素的使用</h1><h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p> <strong>伪类</strong>： 一个伪类是我们可以为了增加CSS选择一个关键字定义一个特殊状态的属于HTML元素。我们可以使用冒号语法 将伪类添加到CSS选择器，:如下所示：a:hover{ … } 。</p><table><thead><tr><th>属性</th><th align="right">描述</th><th>CSS</th></tr></thead><tbody><tr><td>:active</td><td align="right">向被激活的元素添加样式。</td><td>1</td></tr><tr><td>:focus</td><td align="right">向拥有键盘输入焦点的元素添加样式。</td><td>2</td></tr><tr><td>:hover</td><td align="right">当鼠标悬浮在元素上方时，向元素添加样式。</td><td>1</td></tr><tr><td>:link</td><td align="right">向未被访问的链接添加样式。</td><td>1</td></tr><tr><td>:visited</td><td align="right">向已被访问的链接添加样式。</td><td>1</td></tr><tr><td>:first-child</td><td align="right">向元素的第一个子元素添加样式。</td><td>2</td></tr><tr><td>:lang</td><td align="right">向带有指定 lang 属性的元素添加样式。</td><td>2</td></tr><tr><td>:nth-child(2n)</td><td align="right">向元素的偶数元素添加样式</td><td></td></tr></tbody></table><h3 id="a标记的伪类选择器"><a href="#a标记的伪类选择器" class="headerlink" title="a标记的伪类选择器"></a>a标记的伪类选择器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="comment">/* 超链接为访问时的状态 */</span></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;</span></span><br><span class="line">color: red;</span><br><span class="line">text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">a&#123;</span><br><span class="line">font-size: 300px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="comment">/* 设置超链接访问过的网址状态 */</span></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;</span></span><br><span class="line">color: black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="comment">/*设置超链接鼠标悬停时候的样式 */</span></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span></span><br><span class="line"><span class="css"><span class="selector-tag">text-shadow</span>: 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-id">#FF0000</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="comment">/* 设置超链接单机未释放时候的样子 */</span></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;</span></span><br><span class="line">color: lawngreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>百度一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p><strong>伪元素</strong>： css的伪元素，之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素。 </p><table><thead><tr><th>属性</th><th>描述</th><th>CSS</th></tr></thead><tbody><tr><td>:first-letter</td><td>向文本的第一个字母添加特殊样式。</td><td>1</td></tr><tr><td>:first-line</td><td>向文本的首行添加特殊样式。</td><td>1</td></tr><tr><td>:before</td><td>在元素之前添加内容。</td><td>2</td></tr><tr><td>:after</td><td>在元素之后添加内容。</td><td>2</td></tr></tbody></table><h2 id="用于文本的"><a href="#用于文本的" class="headerlink" title="用于文本的"></a>用于文本的</h2><h3 id="first-line-伪元素"><a href="#first-line-伪元素" class="headerlink" title=":first-line 伪元素"></a>:first-line 伪元素</h3><p>可以通过这个属性设置文本第一行的特殊效果，比如一段文字的第一行为红色，其他为黑色。</p><p>如果不通过这个方式来实现，就比较麻烦。因为屏幕适配的原因，你可能不能确定哪些文字属于第一行</p><h3 id="first-letter-伪元素"><a href="#first-letter-伪元素" class="headerlink" title=":first-letter 伪元素"></a>:first-letter 伪元素</h3><p>和first-line 相似，这个只是设置第一个字符的特殊效果。比如第一个字的字体比别的大</p><p>如果不通过这个方式实现，那么就可能还要处理对齐，这种实现方式更方便</p><h3 id="before-和-after伪元素使用"><a href="#before-和-after伪元素使用" class="headerlink" title=":before 和 :after伪元素使用"></a>:before 和 :after伪元素使用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>伪类<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">p&#123;</span><br><span class="line"><span class="css"><span class="selector-tag">width</span>: <span class="selector-tag">fit-content</span>;    <span class="comment">/* p标签的宽度随着文字内容长短而变化 */</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-tag">p</span><span class="selector-pseudo">::before</span>&#123;</span></span><br><span class="line">content: &#x27;&#x27;;/* 内容为空 */</span><br><span class="line">height: 3px;</span><br><span class="line">background-color: yellow;</span><br><span class="line">display: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">content: &#x27;&#x27;;</span><br><span class="line">height: 3px;</span><br><span class="line">background-color: red;</span><br><span class="line">display: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>文本文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>CSS</category>
+          
+          <category> CSS </category>
+          
       </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>伪类和伪元素</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript常用基本语法</title>
-    <url>/2020/10/12/erye/</url>
-    <content><![CDATA[<p>JavaScript中常用的语法和关键字。<br>1.document.write(“”); 输出语句<br>2.JS中的注释为//<br>3.传统的HTML文档顺序是:document-&gt;html-&gt;(head,body)<br>4.一个浏览器窗口中的DOM顺序是:window-&gt;(navigator,screen,history,location,document)</p>
- <a id="more"></a> 
-
-<p>5.得到表单中元素的名称和值:document.getElementById(“表单中元素的ID?”).name(或value)<br>6.一个小写转大写的JS: document.getElementById(“output”).value = document.getElementById(“input”).value.toUpperCase();7.JS中的值类型:String,Number,Boolean,Null,Object,Function<br>8.JS中的字符型转换成数值型:parseInt(),parseFloat()<br>9.JS中的数字转换成字符型:(“” 变量)<br>10.JS中的取字符串长度是:(length)<br>11.JS中的字符与字符相连接使用 ?.<br>12.JS中的比较操作符有:==等于,!=不等于,&gt;,&gt;=,&lt;.&lt;=<br>13.JS中声明变量使用:var来进行声明<br>14.JS中的判断语句结构:if(condition){}else{}<br>15.JS中的循环结构:for([initial expression];[condition];[upadte expression]) {inside loop}<br>16.循环中止的命令是:break<br>17.JS中的函数定义:function functionName([parameter],…){statement[s]}<br>18.当文件中出现多个form表单时.可以用document.forms[0],document.forms[1]来代替.<br>19.窗口:打开窗口window.open(), 关闭一个窗口:window.close(), 窗口本身:self<br>20.状?栏的设置:window.status=”字符”;<br>21.弹出提示信息:window.alert(“字符”);<br>22.弹出催认框:window.confirm();<br>23.弹出输入提示框:window.prompt();<br>24.指定当前显示链接的位置:window.location.href=”URL”<br>25.取出窗体中的所有表单的数量:document.forms.length<br>26.关闭文档的输出流:document.close();<br>27.字符串追加连接符: =<br>28.创建一个文档元素:document.createElement(),document.createTextNode()<br>29.得到元素的方法:document.getElementById()<br>30.设置表单中所有文本型的成员的值为空:<br>var form = window.document.forms[0]<br>for (var i = 0; i&lt;form.elements.length;i ){<br>if (form.elements.type == “text”){<br>form.elements.value = “”;}}<br>31.复选按钮在JS中判断是否选中:document.forms[0].checkThis.checked (checked属性代表为是否选中返回TRUE或FALSE)<br>32.单选按钮组(单选按钮的名称必须相同):取单选按钮组的长度document.forms[0].groupName.length<br>33.单选按钮组判断是否被选中也是用checked.<br>34.下拉列表框的值:document.forms[0].selectName.options[n].value (n有时用下拉列表框名称加上.selectedIndex来催定被选中的值)<br>35.字符串的定义:var myString = new String(“This is lightsword”);<br>36.字符串转成大写:string.toUpperCase(); 字符串转成小写:string.toLowerCase();<br>37.返回字符串2在字符串1中出现的位置:String1.indexOf(“String2”)!=-1则说明没找到.<br>38.取字符串中指定位置的一个字符:StringA.charAt(9);<br>39.取出字符串中指定起点和终点的子字符串:stringA.substring(2,6);<br>40.数学函数:Math.PI(返回圆周率),Math.SQRT2(返回开方),Math.max(value1,value2)返回两个数中的最在值,Math.pow(value1,10)返回value1的十次方,Math.round(value1)四舍五入函数,Math.floor(Math.random()*(n 1))返回胗机数<br>41.定义日期型变量:var today = new Date();<br>42.日期函数列表:dateObj.getTime()得到时间,dateObj.getYear()得到年份,dateObj.getFullYear()得到四位的年份,dateObj.getMonth()得到月份,dateObj.getDate()得到日,dateObj.getDay()得到日期几,dateObj.getHours()得到小时,dateObj.getMinutes()得到分,dateObj.getSeconds()得到秒,dateObj.setTime(value)设置时间,dateObj.setYear(val)设置年,dateObj.setMonth(val)设置月,dateObj.setDate(val)设置日,dateObj.setDay(val)设置星期几,dateObj.setHours设置小时,dateObj.setMinutes(val)设置分,dateObj.setSeconds(val)设置秒 [注意:此日期时间从0开始计]<br>43.FRAME的表示方式: [window.]frames[n].ObjFuncVarName,frames[“frameName”].ObjFuncVarName,frameName.ObjFuncVarName<br>44.parent代表父亲对象,top代表最顶端对象<br>45.打开子窗口的父窗口为:opener<br>46.表示当前所属的位置:this<br>47.当在超链接中调用JS函数时用:(javascript :)来开头后面加函数名<br>48.在老的浏览器中不执行此JS:<!-- //--><br>49.引用一个文件式的JS:<script type="text/javascript" src="aaa.js"></script><br>50.指定在不支持脚本的浏览器显示的HTML:<noscript></noscript><br>51.当超链和onCLICK事件都有时,则老版本的浏览器转向a.html,否则转向b.html.例:<a href="a.html" onclick="location.href='b.html';return false">dfsadf</a><br>52.JS的?建对象有:Array,Boolean,Date,Error,EvalError,Function,Math,Number,Object,RangeError,ReferenceError,RegExp,String,SyntaxError,TypeError,URIError<br>53.JS中的换行:\n<br>54.窗口全屏大小:<script>function fullScreen(){ this.moveTo(0,0);this.outerWidth=screen.availWidth;this.outerHeight=screen.availHeight;}window.maximize=fullScreen;</script><br>55.JS中的all代表其下层的全部元素<br>56.JS中的焦点顺序:document.getElementByid(“表单元素”).tabIndex = 1<br>57.innerHTML的值是表单元素的值:如<p id="para">“how are <em>you</em>“</p>,则innerHTML的值就是:how are <em>you</em><br>58.innerTEXT的值和上面的一样,只不过不会把<em>这种?记显示出来.<br>59.contentEditable可设置元素是否可被修改,isContentEditable返回是否可修改的状?.<br>60.isDisabled判断是否为禁止状?.disabled设置禁止状?<br>61.length取得长度,返回整型数值<br>62.addBehavior()是一种JS调用的外部函数文件其扩展名为.htc<br>63.window.focus()使当前的窗口在所有窗口之前.<br>64.blur()指失去焦点.与FOCUS()相反.<br>65.select()指元素为选中状?.<br>66.防止用户对文本框中输入文本:onfocus=”this.blur()”<br>67.取出该元素在页面中出现的数量:document.all.tags(“P(或其它HTML?记符)”).length<br>68.JS中分为两种窗体输出:模?和非模?.window.showModaldialog(),window.showModeless()<br>69.状?栏文字的设置:window.status=’文字’,默认的状?栏文字设置:window.defaultStatus = ‘文字.’;<br>70.添加到收藏夹:external.AddFavorite(“”;,”webjx”);<br>71.JS中遇到脚本错误时不做任何操作:window.onerror = doNothing; 指定错误句柄的语法为:window.onerror = handleError;<br>72.JS中指定当前打开窗口的父窗口:window.opener,支持opener.opener…的多重继续.<br>73.JS中的self指的是当前的窗口<br>74.JS中状?栏显示?容:window.status=”?容”<br>75.JS中的top指的是框架集中最顶层的框架<br>76.JS中关闭当前的窗口:window.close();<br>77.JS中提出是否催认的框:if(confirm(“Are you sure?”)){alert(“ok”);}else{alert(“Not Ok”);}<br>78.JS中的窗口重定向:window.navigate();<br>79.JS中的打印:window.print()<br>80.JS中的提示输入框:window.prompt(“message”,”defaultReply”);<br>81.JS中的窗口滚动条:window.scroll(x,y)<br>82.JS中的窗口滚动到位置:window.scrollby<br>83.JS中设置时间间隔:setInterval(“expr”,msecDelay)或setInterval(funcRef,msecDelay)或setTimeout<br>84.JS中的模?显示在IE4 行,在NN中不行:showModalDialog(“URL”[,arguments][,features]);<br>85.JS中的退出之前使用的句柄:function verifyClose(){event.returnValue=”we really like you and hope you will stay longer.”;}} window.=verifyClose;<br>86.当窗体第一次调用时使用的文件句柄:onload()<br>87.当窗体关闭时调用的文件句柄:onunload()<br>88.window.location的属性: protocol(http:),hostname,port(80),host,pathname(“/a/a.html”),hash(“#giantGizmo”,指跳转到相应的锚记),href(全部的信息)<br>89.window.location.reload()刷新当前页面.<br>90.window.history.back()返回上一页,window.history.forward()返回下一页,window.history.go(返回第几页,也可以使用访问过的URL)<br>91.document.write()不换行的输出,document.writeln()换行输出<br>92.document.body.noWrap=true;防止链接文字折行.<br>93.变量名.charAt(第几位),取该变量的第几位的字符.<br>94.”abc”.charCodeAt(第几个),返回第几个字符的ASCii码值.<br>95.字符串连接:string.concat(string2),或用 =进行连接<br>96.变量.indexOf(“字符”,起始位置),返回第一个出现的位置(从0开始计算)<br>97.string.lastIndexOf(searchString[,startIndex])最后一次出现的位置.<br>98.string.match(regExpression),判断字符是否匹配.<br>99.string.replace(regExpression,replaceString)替换现有字符串.<br>100.string.split(分隔符)返回一个数组存储值.<br>101.string.substr(start[,length])取从第几位到指定长度的字符串.<br>102.string.toLowerCase()使字符串全部变为小写.<br>103.string.toUpperCase()使全部字符变为大写.<br>104.parseInt(string[,radix(代表进制)])强制转换成整型.<br>105.parseFloat(string[,radix])强制转换成浮点型.<br>106.isNaN(变量):测试是否为数值型.<br>107.定义常量的关键字:const,定义变量的关键字:var</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+            <tag> 伪类和伪元素 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PHP连接MySQL数据库</title>
+      <link href="2020/11/11/php11-11/"/>
+      <url>2020/11/11/php11-11/</url>
+      
+        <content type="html"><![CDATA[<h2 id="PHP连接MySQL数据库"><a href="#PHP连接MySQL数据库" class="headerlink" title="PHP连接MySQL数据库"></a>PHP连接MySQL数据库</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">&#x27;Content-Type:text/html;charset=utf-8&#x27;</span>);</span><br></pre></td></tr></table></figure> <a id="more"></a> <h3 id="1-链接数据库"><a href="#1-链接数据库" class="headerlink" title="//1 链接数据库"></a>//1 链接数据库</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$host = <span class="string">&#x27;localhost&#x27;</span>; <span class="comment">//主机地址</span></span><br><span class="line">$user = <span class="string">&#x27;root&#x27;</span>; <span class="comment">//用户名</span></span><br><span class="line">$password = <span class="string">&#x27;123456&#x27;</span>; <span class="comment">//密码</span></span><br><span class="line">$database = <span class="string">&#x27;project5&#x27;</span>; <span class="comment">//数据库名称</span></span><br><span class="line">$port = <span class="number">3306</span>; <span class="comment">//端口号</span></span><br><span class="line">$link = mysqli_connect($host, $user, $password, $database, $port);  <span class="comment">//链接MySQL</span></span><br><span class="line"><span class="comment">//$link = new mysqli($host, $user, $password, $database, $port);  //另外一种链接数据库语法</span></span><br><span class="line"><span class="comment">//var_dump($link);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断链接是否成功</span></span><br><span class="line"><span class="keyword">if</span>($link)&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;链接成功！！！&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;链接失败！！！&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="2-执行SQL"><a href="#2-执行SQL" class="headerlink" title="//2 执行SQL"></a>//2 执行SQL</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysqli_query($link,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">$sql = <span class="string">&#x27;select * from news&#x27;</span>;</span><br><span class="line">$res = mysqli_query($link, $sql);</span><br><span class="line">mysqli_close($link);  <span class="comment">//关闭数据库</span></span><br><span class="line"><span class="comment">//$sql = &#x27;update news set title=&quot;你好 中国&quot; where id=1&#x27;;</span></span><br><span class="line"><span class="comment">//$res = mysqli_query($link, $sql);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//var_dump($res);</span></span><br></pre></td></tr></table></figure><h3 id="3-解析结果集-思考：每次取一行还是全取。"><a href="#3-解析结果集-思考：每次取一行还是全取。" class="headerlink" title="//3 解析结果集 思考：每次取一行还是全取。"></a>//3 解析结果集 思考：每次取一行还是全取。</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一行一行取所有数据 mysqli_fetch_row 索引数组 mysqli_fetch_assoc 关联数组</span></span><br><span class="line"><span class="comment">// MYSQLI_BOTH 两者MYSQLI_ASSOC 关联 MYSQLI_NUM 索引</span></span><br><span class="line"><span class="comment">//while($r = mysqli_fetch_array($res,MYSQLI_NUM))&#123;</span></span><br><span class="line"><span class="comment">//// echo &quot;$r[1]====$r[2] ===== $r[3]&quot;,&quot;&lt;br&gt;&quot;;</span></span><br><span class="line"><span class="comment">// var_dump($r);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一起取出来，然后在显示</span></span><br><span class="line"> $r = mysqli_fetch_all($res,MYSQLI_ASSOC);</span><br><span class="line"><span class="comment">//var_dump($r);</span></span><br><span class="line"><span class="keyword">foreach</span>($r <span class="keyword">as</span> $v)&#123;</span><br><span class="line"><span class="comment">// var_dump($v);</span></span><br><span class="line"><span class="keyword">echo</span> $v[<span class="string">&#x27;title&#x27;</span>].<span class="string">&#x27;&lt;br&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="4-关闭数据库"><a href="#4-关闭数据库" class="headerlink" title="//4 关闭数据库"></a>//4 关闭数据库</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mysqli_close($link); </span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>JavaScript</category>
+          
+          <category> PHP </category>
+          
       </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL数据库命令</title>
-    <url>/2020/11/05/mysql/</url>
-    <content><![CDATA[<h1 id="–-管理数据库"><a href="#–-管理数据库" class="headerlink" title="– 管理数据库"></a>– 管理数据库</h1><h2 id="–-1创建数据库"><a href="#–-1创建数据库" class="headerlink" title="– 1创建数据库"></a>– 1创建数据库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE DATABASE t;</span><br></pre></td></tr></table></figure>
-
-<p>– 2显示当前数据库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
-
-<p>– 3删除数据库 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DROP DATABASE t;</span><br></pre></td></tr></table></figure>
-
- <a id="more"></a> 
-
-<h2 id="–-管理数据表"><a href="#–-管理数据表" class="headerlink" title="– 管理数据表"></a>– 管理数据表</h2><p>– 创建数据表</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE stu1(</span><br><span class="line">id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT COMMENT &#39;学号&#39;,</span><br><span class="line">NAME VARCHAR(50) NOT NULL COMMENT &#39;姓名&#39;,</span><br><span class="line">age INT COMMENT &#39;年龄&#39;</span><br><span class="line">)ENGINE&#x3D;MYISAM DEFAULT CHARSET&#x3D;&#39;utf8&#39;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="–-对数据表的数据处理：增-删-改-查"><a href="#–-对数据表的数据处理：增-删-改-查" class="headerlink" title="– 对数据表的数据处理：增 删 改 查"></a>– 对数据表的数据处理：增 删 改 查</h2><p>– 增加数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERT INTO STU2(NAME,age) VALUES</span><br><span class="line">(&#39;王五&#39;,20),(&#39;李四&#39; ,20);</span><br></pre></td></tr></table></figure>
-
-<p>– 删除数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE FROM stu2 WHERE id &#x3D;3;</span><br></pre></td></tr></table></figure>
-
-<p>– 修改数据 （设计一个标识例）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE stu2 SET del &#x3D; &#39;1&#39; WHERE id&#x3D;4;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="–-查询操作"><a href="#–-查询操作" class="headerlink" title="– 查询操作"></a>– 查询操作</h2><p>– 1查询所以数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM stu2;</span><br><span class="line">SELECT id,NAME,age,del FROM stu2;</span><br><span class="line"></span><br><span class="line">SELECT NAME &#39;姓名&#39;,age &#39;年龄&#39; FROM stu2;</span><br><span class="line"></span><br><span class="line">SELECT DISTINCT NAME &#39;姓名&#39;,age &#39;年龄&#39; FROM stu2;</span><br></pre></td></tr></table></figure>
-
-<p>– 2条件查询</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE id&#x3D; 3;</span><br></pre></td></tr></table></figure>
-
-<p>– 查年龄等于20或25的学生姓名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE age &#x3D; 20 OR age &#x3D;25;</span><br></pre></td></tr></table></figure>
-
-<p>– 查询姓’张‘的学生信息</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE NAME LIKE &#39;李%&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>– 排序  order by   asc  升序（默认） desc 降序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM stu2 ORDER BY age;</span><br></pre></td></tr></table></figure>
-
-<p>– 分组    group by<br>– 是否删除 人数<br>– 1          5<br>– 0          2</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT del &#39;是否删除&#39; , COUNT(*) &#39;人数&#39; FROM stu2 GROUP BY del;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PHP代码 </tag>
+            
+            <tag> PHP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL数据库命令</title>
+      <link href="2020/11/05/mysql/"/>
+      <url>2020/11/05/mysql/</url>
+      
+        <content type="html"><![CDATA[<h1 id="–-管理数据库"><a href="#–-管理数据库" class="headerlink" title="– 管理数据库"></a>– 管理数据库</h1><h2 id="–-1创建数据库"><a href="#–-1创建数据库" class="headerlink" title="– 1创建数据库"></a>– 1创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE t;</span><br></pre></td></tr></table></figure><p>– 2显示当前数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure><p>– 3删除数据库 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE t;</span><br></pre></td></tr></table></figure> <a id="more"></a> <h2 id="–-管理数据表"><a href="#–-管理数据表" class="headerlink" title="– 管理数据表"></a>– 管理数据表</h2><p>– 创建数据表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu1(</span><br><span class="line">id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT COMMENT &#39;学号&#39;,</span><br><span class="line">NAME VARCHAR(50) NOT NULL COMMENT &#39;姓名&#39;,</span><br><span class="line">age INT COMMENT &#39;年龄&#39;</span><br><span class="line">)ENGINE&#x3D;MYISAM DEFAULT CHARSET&#x3D;&#39;utf8&#39;;</span><br></pre></td></tr></table></figure><h2 id="–-对数据表的数据处理：增-删-改-查"><a href="#–-对数据表的数据处理：增-删-改-查" class="headerlink" title="– 对数据表的数据处理：增 删 改 查"></a>– 对数据表的数据处理：增 删 改 查</h2><p>– 增加数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO STU2(NAME,age) VALUES</span><br><span class="line">(&#39;王五&#39;,20),(&#39;李四&#39; ,20);</span><br></pre></td></tr></table></figure><p>– 删除数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM stu2 WHERE id &#x3D;3;</span><br></pre></td></tr></table></figure><p>– 修改数据 （设计一个标识例）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE stu2 SET del &#x3D; &#39;1&#39; WHERE id&#x3D;4;</span><br></pre></td></tr></table></figure><h2 id="–-查询操作"><a href="#–-查询操作" class="headerlink" title="– 查询操作"></a>– 查询操作</h2><p>– 1查询所以数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu2;</span><br><span class="line">SELECT id,NAME,age,del FROM stu2;</span><br><span class="line"></span><br><span class="line">SELECT NAME &#39;姓名&#39;,age &#39;年龄&#39; FROM stu2;</span><br><span class="line"></span><br><span class="line">SELECT DISTINCT NAME &#39;姓名&#39;,age &#39;年龄&#39; FROM stu2;</span><br></pre></td></tr></table></figure><p>– 2条件查询</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE id&#x3D; 3;</span><br></pre></td></tr></table></figure><p>– 查年龄等于20或25的学生姓名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE age &#x3D; 20 OR age &#x3D;25;</span><br></pre></td></tr></table></figure><p>– 查询姓’张‘的学生信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu2 WHERE NAME LIKE &#39;李%&#39;;</span><br></pre></td></tr></table></figure><p>– 排序  order by   asc  升序（默认） desc 降序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu2 ORDER BY age;</span><br></pre></td></tr></table></figure><p>– 分组    group by<br>– 是否删除 人数<br>– 1          5<br>– 0          2</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT del &#39;是否删除&#39; , COUNT(*) &#39;人数&#39; FROM stu2 GROUP BY del;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>数据库</category>
+          
+          <category> 数据库 </category>
+          
       </categories>
-      <tags>
-        <tag>MySQL命令</tag>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP验证码</title>
-    <url>/2020/10/14/php-1/</url>
-    <content><![CDATA[<h2 id="php实现验证码功能"><a href="#php实现验证码功能" class="headerlink" title="php实现验证码功能"></a>php实现验证码功能</h2><h6 id="1一个长方形的底图；"><a href="#1一个长方形的底图；" class="headerlink" title="1一个长方形的底图；"></a>1<strong>一个长方形的底图</strong>；</h6><h6 id="2验证码的内容（数字，数字-英文，中文）；"><a href="#2验证码的内容（数字，数字-英文，中文）；" class="headerlink" title="2验证码的内容（数字，数字+英文，中文）；"></a>2<strong>验证码的内容（数字，数字+英文，中文）</strong>；</h6><h6 id="3各色的干扰点；"><a href="#3各色的干扰点；" class="headerlink" title="3各色的干扰点；"></a>3<strong>各色的干扰点</strong>；</h6><h6 id="4长短颜色不一的干扰线段。"><a href="#4长短颜色不一的干扰线段。" class="headerlink" title="4长短颜色不一的干扰线段。"></a>4<strong>长短颜色不一的干扰线段</strong>。</h6><p>验证码图是长方形的100*30的大小    </p>
- <a id="more"></a> 
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建验证码画布</span></span><br><span class="line">$img_w = <span class="number">100</span>;  <span class="comment">//验证码的宽度</span></span><br><span class="line">$img_h = <span class="number">30</span>;   <span class="comment">//验证码的高度</span></span><br><span class="line">$img = imagecreatetruecolor($img_w, $img_h);         <span class="comment">//创建画布</span></span><br><span class="line">$bg_color = imagecolorallocate($img,<span class="number">0xcc</span>,<span class="number">0xcc</span>,<span class="number">0xcc</span>); <span class="comment">//为画布分配颜色</span></span><br><span class="line">imagefill($img,<span class="number">0</span>,<span class="number">0</span>,$bg_color);</span><br><span class="line"></span><br><span class="line">$count = <span class="number">4</span>; <span class="comment">//验证码位数</span></span><br><span class="line">$charset = <span class="string">&#x27;ABCDEFGHJKLMNPQRSTUVWXYZ23456789&#x27;</span>; <span class="comment">//随机因子</span></span><br><span class="line">$charset_len = strlen($charset)<span class="number">-1</span>; <span class="comment">//计算随机因子长度（作为取出时的索引）</span></span><br><span class="line">$code = <span class="string">&#x27;&#x27;</span>; <span class="comment">//保存生成的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i) &#123;</span><br><span class="line">    <span class="comment">//通过索引取出字符，mt_rand()用于获取指定范围内的随机数</span></span><br><span class="line">	$code .= $charset[mt_rand(<span class="number">0</span>,$charset_len)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在画布中绘制验证码文本</span></span><br><span class="line">$fontSize = <span class="number">16</span>;    <span class="comment">//文字大小</span></span><br><span class="line">$fontStyle = realpath(<span class="string">&#x27;./SourceCodePro-Bold.ttf&#x27;</span>); <span class="comment">//字体样式</span></span><br><span class="line"><span class="comment">//生成指定长度的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成字体颜色</span></span><br><span class="line">    $fontColor = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">100</span>),mt_rand(<span class="number">0</span>,<span class="number">50</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    imagettftext (</span><br><span class="line">	    $img,        <span class="comment">//画布资源</span></span><br><span class="line">         $fontSize,  <span class="comment">//文字大小</span></span><br><span class="line">	    mt_rand(<span class="number">0</span>,<span class="number">20</span>) - mt_rand(<span class="number">0</span>,<span class="number">25</span>),            <span class="comment">//随机设置文字倾斜角度</span></span><br><span class="line">	    $fontSize*$i+<span class="number">20</span>,mt_rand($img_h/<span class="number">2</span>,$img_h), <span class="comment">//随机设置文字坐标，并自动计算间距</span></span><br><span class="line">	    $fontColor,  <span class="comment">//文字颜色</span></span><br><span class="line">	    $fontStyle,  <span class="comment">//文字字体</span></span><br><span class="line">	    $code[$i] 	 <span class="comment">//文字内容</span></span><br><span class="line">	);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//为验证码图片生成彩色噪点</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">300</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰点</span></span><br><span class="line">  	imagesetpixel($img,mt_rand(<span class="number">0</span>,$img_w),mt_rand(<span class="number">0</span>,$img_h),$color);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">$color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">imagerectangle($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), $color);</span><br><span class="line">imageellipse($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), <span class="number">20</span>, <span class="number">20</span>, $color);	</span><br><span class="line"><span class="comment">//绘制干扰线</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">3</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成干扰线颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰线</span></span><br><span class="line">	  imageline($img,mt_rand(<span class="number">0</span>,$img_w),<span class="number">0</span>,mt_rand(<span class="number">0</span>,$img_h*<span class="number">5</span>),$img_h,$color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将生成的文本保存到Session中</span></span><br><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">&#x27;captcha&#x27;</span>] = $code;</span><br><span class="line">$fontfile =realpath(<span class="string">&#x27;SourceCodePro-Bold.ttf&#x27;</span>);</span><br><span class="line"><span class="comment">//imagettftext($img, 16, 0, 20, 30, $red, $fontfile, $code);</span></span><br><span class="line"><span class="comment">//imagerectangle($canvas, 50, 50, 150, 150, $pink);	</span></span><br><span class="line">header(<span class="string">&#x27;Content-Type: image/gif&#x27;</span>);</span><br><span class="line">imagegif($img);</span><br></pre></td></tr></table></figure>
-
-<p>​                                                               源码里没有html代码</p>
-<p><img src="D:\blog\source_posts\php-1\php.jpg"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> MySQL命令 </tag>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PHP验证码</title>
+      <link href="2020/10/14/php-1/"/>
+      <url>2020/10/14/php-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="php实现验证码功能"><a href="#php实现验证码功能" class="headerlink" title="php实现验证码功能"></a>php实现验证码功能</h2><h6 id="1一个长方形的底图；"><a href="#1一个长方形的底图；" class="headerlink" title="1一个长方形的底图；"></a>1<strong>一个长方形的底图</strong>；</h6><h6 id="2验证码的内容（数字，数字-英文，中文）；"><a href="#2验证码的内容（数字，数字-英文，中文）；" class="headerlink" title="2验证码的内容（数字，数字+英文，中文）；"></a>2<strong>验证码的内容（数字，数字+英文，中文）</strong>；</h6><h6 id="3各色的干扰点；"><a href="#3各色的干扰点；" class="headerlink" title="3各色的干扰点；"></a>3<strong>各色的干扰点</strong>；</h6><h6 id="4长短颜色不一的干扰线段。"><a href="#4长短颜色不一的干扰线段。" class="headerlink" title="4长短颜色不一的干扰线段。"></a>4<strong>长短颜色不一的干扰线段</strong>。</h6><p>验证码图是长方形的100*30的大小    </p> <a id="more"></a> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建验证码画布</span></span><br><span class="line">$img_w = <span class="number">100</span>;  <span class="comment">//验证码的宽度</span></span><br><span class="line">$img_h = <span class="number">30</span>;   <span class="comment">//验证码的高度</span></span><br><span class="line">$img = imagecreatetruecolor($img_w, $img_h);         <span class="comment">//创建画布</span></span><br><span class="line">$bg_color = imagecolorallocate($img,<span class="number">0xcc</span>,<span class="number">0xcc</span>,<span class="number">0xcc</span>); <span class="comment">//为画布分配颜色</span></span><br><span class="line">imagefill($img,<span class="number">0</span>,<span class="number">0</span>,$bg_color);</span><br><span class="line"></span><br><span class="line">$count = <span class="number">4</span>; <span class="comment">//验证码位数</span></span><br><span class="line">$charset = <span class="string">&#x27;ABCDEFGHJKLMNPQRSTUVWXYZ23456789&#x27;</span>; <span class="comment">//随机因子</span></span><br><span class="line">$charset_len = strlen($charset)<span class="number">-1</span>; <span class="comment">//计算随机因子长度（作为取出时的索引）</span></span><br><span class="line">$code = <span class="string">&#x27;&#x27;</span>; <span class="comment">//保存生成的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i) &#123;</span><br><span class="line">    <span class="comment">//通过索引取出字符，mt_rand()用于获取指定范围内的随机数</span></span><br><span class="line">$code .= $charset[mt_rand(<span class="number">0</span>,$charset_len)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在画布中绘制验证码文本</span></span><br><span class="line">$fontSize = <span class="number">16</span>;    <span class="comment">//文字大小</span></span><br><span class="line">$fontStyle = realpath(<span class="string">&#x27;./SourceCodePro-Bold.ttf&#x27;</span>); <span class="comment">//字体样式</span></span><br><span class="line"><span class="comment">//生成指定长度的验证码</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$count; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成字体颜色</span></span><br><span class="line">    $fontColor = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">100</span>),mt_rand(<span class="number">0</span>,<span class="number">50</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    imagettftext (</span><br><span class="line">    $img,        <span class="comment">//画布资源</span></span><br><span class="line">         $fontSize,  <span class="comment">//文字大小</span></span><br><span class="line">    mt_rand(<span class="number">0</span>,<span class="number">20</span>) - mt_rand(<span class="number">0</span>,<span class="number">25</span>),            <span class="comment">//随机设置文字倾斜角度</span></span><br><span class="line">    $fontSize*$i+<span class="number">20</span>,mt_rand($img_h/<span class="number">2</span>,$img_h), <span class="comment">//随机设置文字坐标，并自动计算间距</span></span><br><span class="line">    $fontColor,  <span class="comment">//文字颜色</span></span><br><span class="line">    $fontStyle,  <span class="comment">//文字字体</span></span><br><span class="line">    $code[$i]  <span class="comment">//文字内容</span></span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//为验证码图片生成彩色噪点</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">300</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰点</span></span><br><span class="line">  imagesetpixel($img,mt_rand(<span class="number">0</span>,$img_w),mt_rand(<span class="number">0</span>,$img_h),$color);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">imagerectangle($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), $color);</span><br><span class="line">imageellipse($img, mt_rand(<span class="number">0</span>,$img_h), mt_rand(<span class="number">0</span>,$img_h), <span class="number">20</span>, <span class="number">20</span>, $color);</span><br><span class="line"><span class="comment">//绘制干扰线</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;<span class="number">3</span>; ++$i)&#123;</span><br><span class="line">    <span class="comment">//随机生成干扰线颜色</span></span><br><span class="line">    $color = imagecolorallocate($img,mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>),mt_rand(<span class="number">0</span>,<span class="number">255</span>));</span><br><span class="line">    <span class="comment">//随机绘制干扰线</span></span><br><span class="line">  imageline($img,mt_rand(<span class="number">0</span>,$img_w),<span class="number">0</span>,mt_rand(<span class="number">0</span>,$img_h*<span class="number">5</span>),$img_h,$color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将生成的文本保存到Session中</span></span><br><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">&#x27;captcha&#x27;</span>] = $code;</span><br><span class="line">$fontfile =realpath(<span class="string">&#x27;SourceCodePro-Bold.ttf&#x27;</span>);</span><br><span class="line"><span class="comment">//imagettftext($img, 16, 0, 20, 30, $red, $fontfile, $code);</span></span><br><span class="line"><span class="comment">//imagerectangle($canvas, 50, 50, 150, 150, $pink);</span></span><br><span class="line">header(<span class="string">&#x27;Content-Type: image/gif&#x27;</span>);</span><br><span class="line">imagegif($img);</span><br></pre></td></tr></table></figure><p>​                                                               源码里没有html代码</p><p><img src="D:\blog\source_posts\php-1\php.jpg"></p>]]></content>
+      
+      
       <categories>
-        <category>PHP</category>
+          
+          <category> PHP </category>
+          
       </categories>
-      <tags>
-        <tag>PHP验证码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP连接MySQL数据库</title>
-    <url>/2020/11/11/php11-11/</url>
-    <content><![CDATA[<h2 id="PHP连接MySQL数据库"><a href="#PHP连接MySQL数据库" class="headerlink" title="PHP连接MySQL数据库"></a>PHP连接MySQL数据库</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&#x27;Content-Type:text/html;charset=utf-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
- <a id="more"></a> 
-
-<h3 id="1-链接数据库"><a href="#1-链接数据库" class="headerlink" title="//1 链接数据库"></a>//1 链接数据库</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$host = <span class="string">&#x27;localhost&#x27;</span>; <span class="comment">//主机地址</span></span><br><span class="line">$user = <span class="string">&#x27;root&#x27;</span>; <span class="comment">//用户名</span></span><br><span class="line">$password = <span class="string">&#x27;123456&#x27;</span>; <span class="comment">//密码</span></span><br><span class="line">$database = <span class="string">&#x27;project5&#x27;</span>; <span class="comment">//数据库名称</span></span><br><span class="line">$port = <span class="number">3306</span>; <span class="comment">//端口号</span></span><br><span class="line">$link = mysqli_connect($host, $user, $password, $database, $port);  <span class="comment">//链接MySQL</span></span><br><span class="line"><span class="comment">//$link = new mysqli($host, $user, $password, $database, $port);  //另外一种链接数据库语法</span></span><br><span class="line"><span class="comment">//var_dump($link);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断链接是否成功</span></span><br><span class="line"><span class="keyword">if</span>($link)&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;链接成功！！！&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;链接失败！！！&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-执行SQL"><a href="#2-执行SQL" class="headerlink" title="//2 执行SQL"></a>//2 执行SQL</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">mysqli_query($link,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">$sql = <span class="string">&#x27;select * from news&#x27;</span>;</span><br><span class="line">$res = mysqli_query($link, $sql);</span><br><span class="line">mysqli_close($link);  <span class="comment">//关闭数据库</span></span><br><span class="line"><span class="comment">//$sql = &#x27;update news set title=&quot;你好 中国&quot; where id=1&#x27;;</span></span><br><span class="line"><span class="comment">//$res = mysqli_query($link, $sql);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//var_dump($res);</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-解析结果集-思考：每次取一行还是全取。"><a href="#3-解析结果集-思考：每次取一行还是全取。" class="headerlink" title="//3 解析结果集 思考：每次取一行还是全取。"></a>//3 解析结果集 思考：每次取一行还是全取。</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一行一行取所有数据 mysqli_fetch_row 索引数组 mysqli_fetch_assoc 关联数组</span></span><br><span class="line"><span class="comment">// MYSQLI_BOTH 两者MYSQLI_ASSOC 关联 MYSQLI_NUM 索引</span></span><br><span class="line"><span class="comment">//while($r = mysqli_fetch_array($res,MYSQLI_NUM))&#123;</span></span><br><span class="line"><span class="comment">//// echo &quot;$r[1]====$r[2] ===== $r[3]&quot;,&quot;&lt;br&gt;&quot;;</span></span><br><span class="line"><span class="comment">// var_dump($r);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一起取出来，然后在显示</span></span><br><span class="line"> $r = mysqli_fetch_all($res,MYSQLI_ASSOC);</span><br><span class="line"><span class="comment">//var_dump($r);</span></span><br><span class="line"><span class="keyword">foreach</span>($r <span class="keyword">as</span> $v)&#123;</span><br><span class="line"><span class="comment">// var_dump($v);</span></span><br><span class="line"><span class="keyword">echo</span> $v[<span class="string">&#x27;title&#x27;</span>].<span class="string">&#x27;&lt;br&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-关闭数据库"><a href="#4-关闭数据库" class="headerlink" title="//4 关闭数据库"></a>//4 关闭数据库</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mysqli_close($link); </span></span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PHP验证码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo博客发布文章</title>
+      <link href="2020/10/12/%E5%9C%A8%E8%BF%99%E9%87%8C/"/>
+      <url>2020/10/12/%E5%9C%A8%E8%BF%99%E9%87%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-创建文章"><a href="#1-创建文章" class="headerlink" title="1 创建文章"></a>1 创建文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;     &#x2F;&#x2F;安装hexo-asset-image后可使用 </span><br><span class="line">$ hexo n &quot;My New Post&quot;    &#x2F;&#x2F;简写</span><br></pre></td></tr></table></figure> <a id="more"></a> <h2 id="2-编辑文章"><a href="#2-编辑文章" class="headerlink" title="2 编辑文章"></a>2 编辑文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">文章头部加</span><br><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F;此处填写文章名</span><br><span class="line">date: &#x2F;&#x2F;此处填写发布日期</span><br><span class="line">tags: </span><br><span class="line">  - &#x2F;&#x2F;此处填写标签名(可多个)</span><br><span class="line">categories: &#x2F;&#x2F;此处填写博客文章分类</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="3-文章添加图片"><a href="#3-文章添加图片" class="headerlink" title="3 文章添加图片"></a>3 文章添加图片</h2><p> 1 把本地Blog文件下的配置文件（非主题下）<code>_config.yml</code>里的<code>post_asset_folder:</code>选项设置为<code>true</code></p><p> 2 在本地Blog路径下执行<code>npm install hexo-asset-image --save</code> （用于下载安装一个可以上传本地图片的插件）</p><p> 3 运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文</p><p> 会发现在/source/_posts<code>文件夹中除了</code>xxxx.md`文件还生成了一个同名文件夹</p><p> 4最后在<code>xxxx.md</code>引入图片时，先把图片复制到xxxx文件夹中 然后在xxxx.md中按照markdown的格式引入图片：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg) </span><br></pre></td></tr></table></figure><h2 id="3-生产静态文件"><a href="#3-生产静态文件" class="headerlink" title="3 生产静态文件"></a>3 生产静态文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate </span><br><span class="line">$ hexo g      &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure><h2 id="5-启动本地服务器"><a href="#5-启动本地服务器" class="headerlink" title="5 启动本地服务器"></a>5 启动本地服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server </span><br><span class="line">$ hexo s      &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure><h2 id="5-部署到远端站点"><a href="#5-部署到远端站点" class="headerlink" title="5 部署到远端站点"></a>5 部署到远端站点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$hexo deploy </span><br><span class="line">$ hexo d       &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>PHP</category>
+          
+          <category> 博客 </category>
+          
       </categories>
-      <tags>
-        <tag>PHP代码</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Typora编辑器</title>
-    <url>/2020/10/11/yige/</url>
-    <content><![CDATA[<h2 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h2><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>下面是我觉得比较好的两个点：</p>
-<p>①实时预览：在<code>Typora</code>中我们输入标记语法就能实时看到排版效果，解决了传统<code>Markdown</code>编辑器左右分屏式看起来麻烦的烦恼。</p>
-<p>②快捷键输入：很多标记语法我们都可以使用快捷键输入，免去了手动敲语法的烦恼。</p>
- <a id="more"></a> 
-
-<h3 id="常用快捷键和语法"><a href="#常用快捷键和语法" class="headerlink" title="常用快捷键和语法"></a>常用快捷键和语法</h3><p>标题：Ctrl+1、2、3…对应一、二、三…级标题（光标定位到需要设置为标题的行，按快捷键）</p>
-<p><strong>加粗</strong>：Ctrl+B（选中要加粗的文本，按快捷键）</p>
-<p><em>斜体</em>：Ctrl+I（选中要设置斜体的文本，按快捷键）</p>
-<p>下划线：Ctrl+U（选中要加下划线的文本，按快捷键）</p>
-<p>删除线：Alt+Shift+5（选中要加删除线的文本，按快捷键）</p>
-<p><code>代码片段</code>：Ctrl+Shift+`（选中要设置为代码片段的文本，按快捷键）</p>
-<p>代码块：Ctrl+Shift+K（任意位置按快捷键，选择编程语言然后在代码块中输入代码）</p>
-<p>切换到下一行：Ctrl+Enter（任意位置按快捷键，在代码块中可以跳出代码块另起一行）</p>
-<p><a href="https://link.zhihu.com/?target=https://www.baidu.com/">链接</a>：Ctrl+K（先复制链接，然后选中要加链接的文本，按快捷键。Ctrl+左键点击文本可跳转到对应链接）</p>
-<p>取消格式：再次按相同的快捷键即可</p>
-<p>有序列表：数字+点+空格</p>
-<p>任务列表：加号或减号+空格</p>
-<p>切换到列表下一行：Space+Enter</p>
-<p>嵌套列表：按Tab键</p>
-<p>退出列表：按 Shift+Tab</p>
-<p>插入表格：Ctrl+T</p>
-<p>引用：输入&gt;后面加空格，或者Ctrl+Shift+Q</p>
-]]></content>
-      <tags>
-        <tag>编辑器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客发布文章</title>
-    <url>/2020/10/12/%E5%9C%A8%E8%BF%99%E9%87%8C/</url>
-    <content><![CDATA[<h2 id="1-创建文章"><a href="#1-创建文章" class="headerlink" title="1 创建文章"></a>1 创建文章</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;     &#x2F;&#x2F;安装hexo-asset-image后可使用 </span><br><span class="line">$ hexo n &quot;My New Post&quot;    &#x2F;&#x2F;简写</span><br></pre></td></tr></table></figure>
-
- <a id="more"></a> 
-
-<h2 id="2-编辑文章"><a href="#2-编辑文章" class="headerlink" title="2 编辑文章"></a>2 编辑文章</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">文章头部加</span><br><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F;此处填写文章名</span><br><span class="line">date: &#x2F;&#x2F;此处填写发布日期</span><br><span class="line">tags: </span><br><span class="line">  - &#x2F;&#x2F;此处填写标签名(可多个)</span><br><span class="line">categories: &#x2F;&#x2F;此处填写博客文章分类</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-文章添加图片"><a href="#3-文章添加图片" class="headerlink" title="3 文章添加图片"></a>3 文章添加图片</h2><p> 1 把本地Blog文件下的配置文件（非主题下）<code>_config.yml</code>里的<code>post_asset_folder:</code>选项设置为<code>true</code></p>
-<p> 2 在本地Blog路径下执行<code>npm install hexo-asset-image --save</code> （用于下载安装一个可以上传本地图片的插件）</p>
-<p> 3 运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文</p>
-<p> 会发现在/source/_posts<code>文件夹中除了</code>xxxx.md`文件还生成了一个同名文件夹</p>
-<p> 4最后在<code>xxxx.md</code>引入图片时，先把图片复制到xxxx文件夹中 然后在xxxx.md中按照markdown的格式引入图片：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg) </span><br></pre></td></tr></table></figure>
-
-<h2 id="3-生产静态文件"><a href="#3-生产静态文件" class="headerlink" title="3 生产静态文件"></a>3 生产静态文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo generate </span><br><span class="line">$ hexo g      &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure>
-
-<h2 id="5-启动本地服务器"><a href="#5-启动本地服务器" class="headerlink" title="5 启动本地服务器"></a>5 启动本地服务器</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server </span><br><span class="line">$ hexo s      &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure>
-
-<h2 id="5-部署到远端站点"><a href="#5-部署到远端站点" class="headerlink" title="5 部署到远端站点"></a>5 部署到远端站点</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$hexo deploy </span><br><span class="line">$ hexo d       &#x2F;&#x2F;简写 </span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript常用基本语法</title>
+      <link href="2020/10/12/erye/"/>
+      <url>2020/10/12/erye/</url>
+      
+        <content type="html"><![CDATA[<p>JavaScript中常用的语法和关键字。<br>1.document.write(“”); 输出语句<br>2.JS中的注释为//<br>3.传统的HTML文档顺序是:document-&gt;html-&gt;(head,body)<br>4.一个浏览器窗口中的DOM顺序是:window-&gt;(navigator,screen,history,location,document)</p> <a id="more"></a> <p>5.得到表单中元素的名称和值:document.getElementById(“表单中元素的ID?”).name(或value)<br>6.一个小写转大写的JS: document.getElementById(“output”).value = document.getElementById(“input”).value.toUpperCase();7.JS中的值类型:String,Number,Boolean,Null,Object,Function<br>8.JS中的字符型转换成数值型:parseInt(),parseFloat()<br>9.JS中的数字转换成字符型:(“” 变量)<br>10.JS中的取字符串长度是:(length)<br>11.JS中的字符与字符相连接使用 ?.<br>12.JS中的比较操作符有:==等于,!=不等于,&gt;,&gt;=,&lt;.&lt;=<br>13.JS中声明变量使用:var来进行声明<br>14.JS中的判断语句结构:if(condition){}else{}<br>15.JS中的循环结构:for([initial expression];[condition];[upadte expression]) {inside loop}<br>16.循环中止的命令是:break<br>17.JS中的函数定义:function functionName([parameter],…){statement[s]}<br>18.当文件中出现多个form表单时.可以用document.forms[0],document.forms[1]来代替.<br>19.窗口:打开窗口window.open(), 关闭一个窗口:window.close(), 窗口本身:self<br>20.状?栏的设置:window.status=”字符”;<br>21.弹出提示信息:window.alert(“字符”);<br>22.弹出催认框:window.confirm();<br>23.弹出输入提示框:window.prompt();<br>24.指定当前显示链接的位置:window.location.href=”URL”<br>25.取出窗体中的所有表单的数量:document.forms.length<br>26.关闭文档的输出流:document.close();<br>27.字符串追加连接符: =<br>28.创建一个文档元素:document.createElement(),document.createTextNode()<br>29.得到元素的方法:document.getElementById()<br>30.设置表单中所有文本型的成员的值为空:<br>var form = window.document.forms[0]<br>for (var i = 0; i&lt;form.elements.length;i ){<br>if (form.elements.type == “text”){<br>form.elements.value = “”;}}<br>31.复选按钮在JS中判断是否选中:document.forms[0].checkThis.checked (checked属性代表为是否选中返回TRUE或FALSE)<br>32.单选按钮组(单选按钮的名称必须相同):取单选按钮组的长度document.forms[0].groupName.length<br>33.单选按钮组判断是否被选中也是用checked.<br>34.下拉列表框的值:document.forms[0].selectName.options[n].value (n有时用下拉列表框名称加上.selectedIndex来催定被选中的值)<br>35.字符串的定义:var myString = new String(“This is lightsword”);<br>36.字符串转成大写:string.toUpperCase(); 字符串转成小写:string.toLowerCase();<br>37.返回字符串2在字符串1中出现的位置:String1.indexOf(“String2”)!=-1则说明没找到.<br>38.取字符串中指定位置的一个字符:StringA.charAt(9);<br>39.取出字符串中指定起点和终点的子字符串:stringA.substring(2,6);<br>40.数学函数:Math.PI(返回圆周率),Math.SQRT2(返回开方),Math.max(value1,value2)返回两个数中的最在值,Math.pow(value1,10)返回value1的十次方,Math.round(value1)四舍五入函数,Math.floor(Math.random()*(n 1))返回胗机数<br>41.定义日期型变量:var today = new Date();<br>42.日期函数列表:dateObj.getTime()得到时间,dateObj.getYear()得到年份,dateObj.getFullYear()得到四位的年份,dateObj.getMonth()得到月份,dateObj.getDate()得到日,dateObj.getDay()得到日期几,dateObj.getHours()得到小时,dateObj.getMinutes()得到分,dateObj.getSeconds()得到秒,dateObj.setTime(value)设置时间,dateObj.setYear(val)设置年,dateObj.setMonth(val)设置月,dateObj.setDate(val)设置日,dateObj.setDay(val)设置星期几,dateObj.setHours设置小时,dateObj.setMinutes(val)设置分,dateObj.setSeconds(val)设置秒 [注意:此日期时间从0开始计]<br>43.FRAME的表示方式: [window.]frames[n].ObjFuncVarName,frames[“frameName”].ObjFuncVarName,frameName.ObjFuncVarName<br>44.parent代表父亲对象,top代表最顶端对象<br>45.打开子窗口的父窗口为:opener<br>46.表示当前所属的位置:this<br>47.当在超链接中调用JS函数时用:(javascript :)来开头后面加函数名<br>48.在老的浏览器中不执行此JS:<!-- //--><br>49.引用一个文件式的JS:<script type="text/javascript" src="aaa.js"></script><br>50.指定在不支持脚本的浏览器显示的HTML:<noscript></noscript><br>51.当超链和onCLICK事件都有时,则老版本的浏览器转向a.html,否则转向b.html.例:<a href="a.html" onclick="location.href='b.html';return false">dfsadf</a><br>52.JS的?建对象有:Array,Boolean,Date,Error,EvalError,Function,Math,Number,Object,RangeError,ReferenceError,RegExp,String,SyntaxError,TypeError,URIError<br>53.JS中的换行:\n<br>54.窗口全屏大小:<script>function fullScreen(){ this.moveTo(0,0);this.outerWidth=screen.availWidth;this.outerHeight=screen.availHeight;}window.maximize=fullScreen;</script><br>55.JS中的all代表其下层的全部元素<br>56.JS中的焦点顺序:document.getElementByid(“表单元素”).tabIndex = 1<br>57.innerHTML的值是表单元素的值:如<p id="para">“how are <em>you</em>“</p>,则innerHTML的值就是:how are <em>you</em><br>58.innerTEXT的值和上面的一样,只不过不会把<em>这种?记显示出来.<br>59.contentEditable可设置元素是否可被修改,isContentEditable返回是否可修改的状?.<br>60.isDisabled判断是否为禁止状?.disabled设置禁止状?<br>61.length取得长度,返回整型数值<br>62.addBehavior()是一种JS调用的外部函数文件其扩展名为.htc<br>63.window.focus()使当前的窗口在所有窗口之前.<br>64.blur()指失去焦点.与FOCUS()相反.<br>65.select()指元素为选中状?.<br>66.防止用户对文本框中输入文本:onfocus=”this.blur()”<br>67.取出该元素在页面中出现的数量:document.all.tags(“P(或其它HTML?记符)”).length<br>68.JS中分为两种窗体输出:模?和非模?.window.showModaldialog(),window.showModeless()<br>69.状?栏文字的设置:window.status=’文字’,默认的状?栏文字设置:window.defaultStatus = ‘文字.’;<br>70.添加到收藏夹:external.AddFavorite(“”;,”webjx”);<br>71.JS中遇到脚本错误时不做任何操作:window.onerror = doNothing; 指定错误句柄的语法为:window.onerror = handleError;<br>72.JS中指定当前打开窗口的父窗口:window.opener,支持opener.opener…的多重继续.<br>73.JS中的self指的是当前的窗口<br>74.JS中状?栏显示?容:window.status=”?容”<br>75.JS中的top指的是框架集中最顶层的框架<br>76.JS中关闭当前的窗口:window.close();<br>77.JS中提出是否催认的框:if(confirm(“Are you sure?”)){alert(“ok”);}else{alert(“Not Ok”);}<br>78.JS中的窗口重定向:window.navigate();<br>79.JS中的打印:window.print()<br>80.JS中的提示输入框:window.prompt(“message”,”defaultReply”);<br>81.JS中的窗口滚动条:window.scroll(x,y)<br>82.JS中的窗口滚动到位置:window.scrollby<br>83.JS中设置时间间隔:setInterval(“expr”,msecDelay)或setInterval(funcRef,msecDelay)或setTimeout<br>84.JS中的模?显示在IE4 行,在NN中不行:showModalDialog(“URL”[,arguments][,features]);<br>85.JS中的退出之前使用的句柄:function verifyClose(){event.returnValue=”we really like you and hope you will stay longer.”;}} window.=verifyClose;<br>86.当窗体第一次调用时使用的文件句柄:onload()<br>87.当窗体关闭时调用的文件句柄:onunload()<br>88.window.location的属性: protocol(http:),hostname,port(80),host,pathname(“/a/a.html”),hash(“#giantGizmo”,指跳转到相应的锚记),href(全部的信息)<br>89.window.location.reload()刷新当前页面.<br>90.window.history.back()返回上一页,window.history.forward()返回下一页,window.history.go(返回第几页,也可以使用访问过的URL)<br>91.document.write()不换行的输出,document.writeln()换行输出<br>92.document.body.noWrap=true;防止链接文字折行.<br>93.变量名.charAt(第几位),取该变量的第几位的字符.<br>94.”abc”.charCodeAt(第几个),返回第几个字符的ASCii码值.<br>95.字符串连接:string.concat(string2),或用 =进行连接<br>96.变量.indexOf(“字符”,起始位置),返回第一个出现的位置(从0开始计算)<br>97.string.lastIndexOf(searchString[,startIndex])最后一次出现的位置.<br>98.string.match(regExpression),判断字符是否匹配.<br>99.string.replace(regExpression,replaceString)替换现有字符串.<br>100.string.split(分隔符)返回一个数组存储值.<br>101.string.substr(start[,length])取从第几位到指定长度的字符串.<br>102.string.toLowerCase()使字符串全部变为小写.<br>103.string.toUpperCase()使全部字符变为大写.<br>104.parseInt(string[,radix(代表进制)])强制转换成整型.<br>105.parseFloat(string[,radix])强制转换成浮点型.<br>106.isNaN(变量):测试是否为数值型.<br>107.定义常量的关键字:const,定义变量的关键字:var</p>]]></content>
+      
+      
       <categories>
-        <category>博客</category>
+          
+          <category> JavaScript </category>
+          
       </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Typora编辑器</title>
+      <link href="2020/10/11/yige/"/>
+      <url>2020/10/11/yige/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h2><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>下面是我觉得比较好的两个点：</p><p>①实时预览：在<code>Typora</code>中我们输入标记语法就能实时看到排版效果，解决了传统<code>Markdown</code>编辑器左右分屏式看起来麻烦的烦恼。</p><p>②快捷键输入：很多标记语法我们都可以使用快捷键输入，免去了手动敲语法的烦恼。</p> <a id="more"></a> <h3 id="常用快捷键和语法"><a href="#常用快捷键和语法" class="headerlink" title="常用快捷键和语法"></a>常用快捷键和语法</h3><p>标题：Ctrl+1、2、3…对应一、二、三…级标题（光标定位到需要设置为标题的行，按快捷键）</p><p><strong>加粗</strong>：Ctrl+B（选中要加粗的文本，按快捷键）</p><p><em>斜体</em>：Ctrl+I（选中要设置斜体的文本，按快捷键）</p><p>下划线：Ctrl+U（选中要加下划线的文本，按快捷键）</p><p>删除线：Alt+Shift+5（选中要加删除线的文本，按快捷键）</p><p><code>代码片段</code>：Ctrl+Shift+`（选中要设置为代码片段的文本，按快捷键）</p><p>代码块：Ctrl+Shift+K（任意位置按快捷键，选择编程语言然后在代码块中输入代码）</p><p>切换到下一行：Ctrl+Enter（任意位置按快捷键，在代码块中可以跳出代码块另起一行）</p><p><a href="https://link.zhihu.com/?target=https://www.baidu.com/">链接</a>：Ctrl+K（先复制链接，然后选中要加链接的文本，按快捷键。Ctrl+左键点击文本可跳转到对应链接）</p><p>取消格式：再次按相同的快捷键即可</p><p>有序列表：数字+点+空格</p><p>任务列表：加号或减号+空格</p><p>切换到列表下一行：Space+Enter</p><p>嵌套列表：按Tab键</p><p>退出列表：按 Shift+Tab</p><p>插入表格：Ctrl+T</p><p>引用：输入&gt;后面加空格，或者Ctrl+Shift+Q</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 编辑器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
